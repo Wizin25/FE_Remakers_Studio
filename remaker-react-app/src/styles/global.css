@@ -1,0 +1,8 @@
+/* Di chuyển styles chung từ index.html vào đây */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,700,400|Abril+Fatface:400");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+} 
