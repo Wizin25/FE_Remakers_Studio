@@ -1,635 +1,402 @@
 .home {
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.content {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-top: 100px; /* Để tránh bị navbar che */
+}
+
+/* Banner Section */
+.banner-slider {
+  position: relative;
+  width: 100%;
+  height: 90%; /* Tăng chiều cao */
+  overflow: hidden;
+  margin-top: -100px; /* Để banner nằm sát navbar */
+}
+
+.slides-container {
+  display: flex;
+  width: 200%;
+  height: 90%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  width: 50%; /* Đổi thành 50% vì container là 200% */
+  height: 90%;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Đổi thành cover để ảnh lấp đầy */
+  object-position: center;
+}
+
+.slide-image {
+  width: 50%;
+  height: 500px;
+  position: relative;
+}
+
+.slide-image img {
+  width: 100%;
+  height: 500px;
+  object-fit: contain; /* Changed from cover to contain */
+  object-position: center;
+  max-height: 500px;
+  background-color: #f5f5f5; /* Added background color */
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.3)
+  );
+}
+
+
+.cta-button {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Nút điều hướng */
+.slider-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.3); /* Màu tối hơn */
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.slider-nav:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
+
+/* Dots navigation */
+.slider-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #ffffff;
+  transform: scale(1.2);
+}
+
+/* Activity Section */
+.activity-section {
+  padding: 60px 0;
+  background-color: #f6f6f6fc;
+}
+
+.activity-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.activity-step {
+  flex: 1;
+  text-align: center;
+  padding: 0 15px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.activity-step img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.activity-step p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333333;
+  margin-top: 15px;
+}
+
+.activity-step::after {
+  content: "→";
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: #666666;
+}
+
+.activity-step:last-child::after {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .activity-content {
+    flex-direction: column;
+    gap: 30px;
   }
   
-  .home .div {
-    background-color: #ffffff;
-    height: 3657px;
-    overflow: hidden;
-    position: relative;
-    width: 1728px;
+  .activity-step::after {
+    content: "↓";
+    right: 50%;
+    top: auto;
+    bottom: -25px;
+    transform: translateX(50%);
+  }
+}
+/* Map Section */
+.map-section {
+  padding: 50px 20px;
+}
+
+.map-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.map-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Footer Section */
+.footer-section {
+  background-color: #ffffff;
+  box-shadow: inset 0px 4px 4px rgba(0,0,0,0.1);
+  padding: 80px 20px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+}
+
+.footer-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  height: 95px;
+  width: auto;
+}
+
+.footer-contact {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+}
+
+.footer-column h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column li {
+  margin-bottom: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #6e6d6e;
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #6e6d6e;
+}
+
+.footer-subscribe {
+  max-width: 500px;
+}
+
+.footer-subscribe h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 27px;
+  margin-bottom: 20px;
+}
+
+.footer-subscribe p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #6e6d6e;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.subscribe-form {
+  position: relative;
+  margin-top: 20px;
+}
+
+.subscribe-form input {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-bottom: 2px solid #000000;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+}
+
+.subscribe-form input:focus {
+  outline: none;
+}
+
+.send-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+  .slide-content h2 {
+    font-size: 2.5rem;
   }
   
-  .home .bottom {
-    height: 726px;
-    left: 0;
-    position: absolute;
-    top: 2864px;
-    width: 1740px;
+  .slide-content p {
+    font-size: 1.2rem;
   }
   
-  .home .overlap {
-    height: 726px;
-    position: relative;
-    width: 1728px;
+  .cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide-content {
+    left: 20px;
+    right: 20px;
+  }
+
+  .slide-content h1 {
+    font-size: 32px;
+  }
+
+  .slide-content p {
+    font-size: 16px;
+  }
+
+  .slider-nav {
+    width: 30px;
+    height: 30px;
+  }
+  /* Responsive adjustments */
+
+
+@media (max-width: 1024px) {
+  .banner-slider {
+    height: 500px;
   }
   
-  .home .bottom-nav {
-    background-color: #ffffff;
-    box-shadow: inset 0px 4px 4px #00000040;
-    height: 726px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 1728px;
+  .slide-image img {
+    max-height: 500px;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-slider {
+    height: 400px;
   }
   
-  .home .logo {
-    height: 95px;
-    left: 31px;
-    object-fit: cover;
-    position: absolute;
-    top: 22px;
-    width: 220px;
+  .slide-image img {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-slider {
+    height: 300px;
   }
   
-  .home .contact {
-    height: 61px;
-    left: 1181px;
-    position: absolute;
-    top: 235px;
-    width: 24px;
+  .slide-image img {
+    max-height: 300px;
   }
-  
-  .home .phone-call-instance {
-    height: 22px !important;
-    left: 2px !important;
-    top: 39px !important;
-    width: 22px !important;
-  }
-  
-  .home .img {
-    height: 50px;
-    left: 1183px;
-    object-fit: cover;
-    position: absolute;
-    top: 620px;
-    width: 234px;
-  }
-  
-  .home .subscribe {
-    height: 211px;
-    left: 1183px;
-    position: absolute;
-    top: 377px;
-    width: 514px;
-  }
-  
-  .home .c-p-nh-t-xu-h-ng-m-i {
-    color: #131212;
-    font-family: "Montserrat", Helvetica;
-    font-size: 27px;
-    font-weight: 700;
-    height: 33px;
-    left: 0;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 0;
-    width: 508px;
-  }
-  
-  .home .text-wrapper {
-    color: #6e6d6e;
-    font-family: "Montserrat", Helvetica;
-    font-size: 24px;
-    font-weight: 400;
-    height: 84px;
-    left: 1px;
-    letter-spacing: 0;
-    line-height: 28px;
-    position: absolute;
-    top: 65px;
-    width: 478px;
-  }
-  
-  .home .overlap-group {
-    height: 33px;
-    left: 0;
-    position: absolute;
-    top: 178px;
-    width: 442px;
-  }
-  
-  .home .p {
-    color: #6e6d6e;
-    font-family: "Montserrat", Helvetica;
-    font-size: 24px;
-    font-weight: 400;
-    height: 29px;
-    left: 0;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 1px;
-    width: 442px;
-  }
-  
-  .home .line {
-    height: 4px;
-    left: 0;
-    object-fit: cover;
-    position: absolute;
-    top: 29px;
-    width: 400px;
-  }
-  
-  .home .send-instance {
-    left: 400px !important;
-  }
-  
-  .home .group {
-    height: 189px;
-    left: 41px;
-    position: absolute;
-    top: 474px;
-    width: 770px;
-  }
-  
-  .home .location-on-instance {
-    height: 30px !important;
-    top: 157px !important;
-    width: 30px !important;
-  }
-  
-  .home .term-conditions {
-    color: transparent;
-    font-family: "Montserrat", Helvetica;
-    font-size: 24px;
-    font-weight: 700;
-    height: 58px;
-    left: 11px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 0;
-  }
-  
-  .home .span {
-    color: #000000;
-  }
-  
-  .home .text-wrapper-2 {
-    color: #979797;
-  }
-  
-  .home .text-wrapper-3 {
-    color: #000000;
-    font-family: "Montserrat", Helvetica;
-    font-size: 24px;
-    font-weight: 700;
-    height: 29px;
-    left: 34px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 160px;
-  }
-  
-  .home .d-ch-v-s-n-ph-m {
-    color: #000000;
-    font-family: "Montserrat", Helvetica;
-    font-size: 27px;
-    font-weight: 700;
-    height: 33px;
-    left: 52px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 178px;
-  }
-  
-  .home .custom-gi-y-v-sinh {
-    color: #000000;
-    font-family: "Montserrat", Helvetica;
-    font-size: 24px;
-    font-weight: 300;
-    height: 200px;
-    left: 52px;
-    letter-spacing: 0;
-    line-height: 40px;
-    position: absolute;
-    top: 225px;
-  }
-  
-  .home .v-remakers-ch-nh-s {
-    color: #000000;
-    font-family: "Montserrat", Helvetica;
-    font-size: 24px;
-    font-weight: 300;
-    height: 120px;
-    left: 656px;
-    letter-spacing: 0;
-    line-height: 40px;
-    position: absolute;
-    top: 225px;
-  }
-  
-  .home .v-ch-ng-t-i {
-    color: #000000;
-    font-family: "Montserrat", Helvetica;
-    font-size: 27px;
-    font-weight: 700;
-    height: 33px;
-    left: 656px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 178px;
-  }
-  
-  .home .remakers-gmail-com {
-    color: #000000;
-    font-family: "Montserrat", Helvetica;
-    font-size: 24px;
-    font-weight: 300;
-    height: 80px;
-    left: 1222px;
-    letter-spacing: 0;
-    line-height: 40px;
-    position: absolute;
-    top: 225px;
-  }
-  
-  .home .li-n-h-h-tr {
-    color: #000000;
-    font-family: "Montserrat", Helvetica;
-    font-size: 27px;
-    font-weight: 700;
-    height: 33px;
-    left: 1181px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 178px;
-  }
-  
-  .home .googlemap {
-    background-image: url(https://c.animaapp.com/T2T9GUNe/img/ggmap.png);
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 714px;
-    left: 0;
-    position: absolute;
-    top: 2139px;
-    width: 1728px;
-  }
-  
-  .home .ggmap {
-    height: 131px;
-    left: 27px;
-    position: absolute;
-    top: 35px;
-    width: 273px;
-  }
-  
-  .home .activity {
-    height: 439px;
-    left: -59px;
-    position: absolute;
-    top: 1507px;
-    width: 1863px;
-  }
-  
-  .home .overlap-2 {
-    background-color: #f6f7f9;
-    height: 141px;
-    left: 42px;
-    position: absolute;
-    top: 298px;
-    width: 1771px;
-  }
-  
-  .home .text-wrapper-4 {
-    color: #000000;
-    font-family: "Montserrat", Helvetica;
-    font-size: 20px;
-    font-weight: 400;
-    height: 93px;
-    left: 51px;
-    letter-spacing: 0;
-    line-height: 31px;
-    position: absolute;
-    text-align: center;
-    top: 24px;
-    width: 379px;
-  }
-  
-  .home .text-wrapper-5 {
-    color: #000000;
-    font-family: "Montserrat", Helvetica;
-    font-size: 20px;
-    font-weight: 400;
-    height: 62px;
-    left: 486px;
-    letter-spacing: 0;
-    line-height: 31px;
-    position: absolute;
-    text-align: center;
-    top: 24px;
-    width: 354px;
-  }
-  
-  .home .text-wrapper-6 {
-    color: #000000;
-    font-family: "Montserrat", Helvetica;
-    font-size: 20px;
-    font-weight: 400;
-    height: 62px;
-    left: 913px;
-    letter-spacing: 0;
-    line-height: 31px;
-    position: absolute;
-    text-align: center;
-    top: 24px;
-    width: 379px;
-  }
-  
-  .home .text-wrapper-7 {
-    color: #000000;
-    font-family: "Montserrat", Helvetica;
-    font-size: 20px;
-    font-weight: 400;
-    height: 62px;
-    left: 1374px;
-    letter-spacing: 0;
-    line-height: 31px;
-    position: absolute;
-    text-align: center;
-    top: 24px;
-    width: 337px;
-  }
-  
-  .home .activity-2 {
-    height: 298px;
-    left: 59px;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    width: 1728px;
-  }
-  
-  .home .name-bar {
-    height: 85px;
-    left: 541px;
-    position: absolute;
-    top: 1408px;
-    width: 646px;
-  }
-  
-  .home .text {
-    height: 128px;
-    left: 59px;
-    position: absolute;
-    top: 1124px;
-    width: 1622px;
-  }
-  
-  .home .div-wrapper {
-    background-color: #ffffff;
-    border: 1px solid;
-    border-color: #000000;
-    border-radius: 5px;
-    box-shadow: 0px 4px 4px #00000040;
-    height: 128px;
-    position: relative;
-    width: 1620px;
-  }
-  
-  .home .text-wrapper-8 {
-    color: #000000;
-    font-family: "Montserrat", Helvetica;
-    font-size: 40px;
-    font-weight: 400;
-    height: 128px;
-    left: 110px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: -1px;
-    width: 1396px;
-  }
-  
-  .home .intro {
-    height: 85px;
-    left: 59px;
-    position: absolute;
-    top: 970px;
-    width: 1620px;
-  }
-  
-  .home .overlap-3 {
-    background-image: url(https://c.animaapp.com/T2T9GUNe/img/poster1.png);
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 678px;
-    left: 59px;
-    position: absolute;
-    top: 178px;
-    width: 1620px;
-  }
-  
-  .home .right-button {
-    background-color: #e5e5e5;
-    border-radius: 25px;
-    height: 50px;
-    left: 1545px;
-    position: absolute;
-    top: 314px;
-    width: 50px;
-  }
-  
-  .home .vector {
-    height: 16px;
-    left: 12px;
-    position: absolute;
-    top: 17px;
-    width: 27px;
-  }
-  
-  .home .left-button {
-    background-color: #e5e5e5;
-    border-radius: 25px;
-    height: 50px;
-    left: 11px;
-    position: absolute;
-    top: 314px;
-    transform: rotate(-180deg);
-    width: 50px;
-  }
-  
-  .home .vector-2 {
-    height: 16px;
-    left: 12px;
-    position: absolute;
-    top: 17px;
-    transform: rotate(180deg);
-    width: 27px;
-  }
-  
-  .home .nav {
-    height: 75px;
-    left: 59px;
-    position: absolute;
-    top: 45px;
-    width: 1620px;
-  }
-  
-  .home .navbar {
-    height: 29px;
-    left: 317px;
-    position: absolute;
-    top: 32px;
-    width: 1037px;
-  }
-  
-  .home .custom {
-    color: #131212;
-    font-family: "Montserrat", Helvetica;
-    font-size: 24px;
-    font-weight: 700;
-    height: 29px;
-    left: 0;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    width: 208px;
-  }
-  
-  .home .d-ch-v {
-    color: #131212;
-    font-family: "Montserrat", Helvetica;
-    font-size: 24px;
-    font-weight: 700;
-    height: 29px;
-    left: 314px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    width: 152px;
-  }
-  
-  .home .s-n-ph-m {
-    color: #131212;
-    font-family: "Montserrat", Helvetica;
-    font-size: 24px;
-    font-weight: 700;
-    height: 29px;
-    left: 571px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    width: 178px;
-  }
-  
-  .home .li-n-h {
-    color: #131212;
-    font-family: "Montserrat", Helvetica;
-    font-size: 24px;
-    font-weight: 700;
-    height: 29px;
-    left: 854px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    width: 175px;
-  }
-  
-  .home .group-2 {
-    height: 50px;
-    left: 1520px;
-    position: absolute;
-    top: 17px;
-    width: 100px;
-  }
-  
-  .home .shopping-bag-line {
-    background-color: #ffffff;
-    height: 50px;
-    left: 50px;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    width: 50px;
-  }
-  
-  .home .vector-3 {
-    height: 50px;
-    left: -851px;
-    position: absolute;
-    top: -125px;
-    width: 50px;
-  }
-  
-  .home .overlap-group-2 {
-    height: 44px;
-    left: 6px;
-    position: absolute;
-    top: 2px;
-    width: 40px;
-  }
-  
-  .home .vector-4 {
-    height: 44px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 38px;
-  }
-  
-  .home .ellipse {
-    background-color: #ff0000;
-    border-radius: 9.03px / 9.17px;
-    height: 18px;
-    left: 22px;
-    position: absolute;
-    top: 0;
-    width: 18px;
-  }
-  
-  .home .text-wrapper-9 {
-    color: #ffffff;
-    font-family: "Abril Fatface", Helvetica;
-    font-size: 10px;
-    font-weight: 400;
-    height: 7px;
-    left: 24px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 4px;
-    white-space: nowrap;
-    width: 12px;
-  }
-  
-  .home .account-circle-line {
-    height: 50px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 50px;
-  }
-  
-  .home .logo-2 {
-    height: 75px;
-    left: 0;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    width: 172px;
-  }
-  
+}
+}

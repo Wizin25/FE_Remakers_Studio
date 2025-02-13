@@ -1,35 +1,50 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Navbar.css';
 
 export const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <div className="nav">
-      <div className="navbar">
-        <img
-          className="logo-2"
-          alt="Logo"
-          src="https://c.animaapp.com/T2T9GUNe/img/logo-1@2x.png"
-        />
+      <div className="nav-container">
+        {/* Logo */}
+        <div className="nav-logo">
+          <img
+            className="logo-2"
+            alt="Logo"
+            src="/src/assets/images/logo.jpg"
+          />
+        </div>
+
+        {/* Menu Items */}
         <div className="navbar">
           <div className="custom">TRANG CHỦ</div>
           <div className="d-ch-v">DỊCH VỤ</div>
           <div className="s-n-ph-m">SẢN PHẨM</div>
           <div className="li-n-h">LIÊN HỆ</div>
         </div>
-        <div className="group-2">
-          <div className="shopping-bag-line">
-            <div className="overlap-group-2">
-              <div className="ellipse">
-                <div className="text-wrapper-9">2</div>
-              </div>
-            </div>
+
+        {/* User Actions */}
+        <div className="nav-actions">
+          <div className="user-account" onClick={() => navigate('/login')}>
+            <img
+              className="account-icon"
+              alt="Account"
+              src="/src/assets/images/user.jpg"
+            />
+            <span>Tài khoản</span>
           </div>
-          <img
-            className="account-circle-line"
-            alt="Account"
-            src="https://c.animaapp.com/T2T9GUNe/img/account-circle-line-1@2x.png"
-          />
+          <div className="shopping-cart">
+            <img
+              className="cart-icon"
+              alt="Cart"
+              src="/src/assets/images/cart.jpg"
+            />
+            <span>Giỏ hàng</span>
+            <span className="cart-count">5</span>
+          </div>
         </div>
       </div>
     </div>
   );
-}; 
+};

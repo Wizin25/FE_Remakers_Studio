@@ -1,0 +1,140 @@
+.nav {
+    background-color: #ffffff;
+    height: 100px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .nav-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+  }
+  
+  /* Logo */
+  .nav-logo {
+    flex: 0 0 200px;
+  }
+  
+  .logo-2 {
+    height: 104px;
+    width: 200px;
+    object-fit: contain;
+  }
+  
+  /* Menu Items */
+  .navbar {
+    display: flex;
+    gap: 120px;
+    align-items: center;
+  }
+  
+  .navbar > div {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar > div:hover {
+    color: #666666;
+  }
+  
+  /* User Actions */
+  .nav-actions {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+  
+  .user-account,
+  .shopping-cart {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+  }
+  
+  .account-icon,
+  .cart-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .nav-actions span {
+    font-family: "Montserrat", Helvetica;
+    font-size: 14px;
+    color: #000000;
+  }
+  
+  .cart-count {
+    background-color: #fd0404;
+    color: #ffffff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    margin-left: 4px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .navbar {
+      gap: 40px;
+    }
+  
+    .nav-container {
+      padding: 0 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .navbar {
+      display: none; /* Hide menu items on mobile */
+    }
+  
+    .nav-logo {
+      flex: 0 0 150px;
+    }
+  
+    .logo-2 {
+      height: 45px;
+      width: 150px;
+    }
+  
+    .nav-actions span {
+      display: none; /* Hide text, show only icons */
+    }
+  
+    .nav-actions {
+      gap: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .nav {
+      height: 80px;
+    }
+  
+    .nav-logo {
+      flex: 0 0 120px;
+    }
+  
+    .logo-2 {
+      height: 36px;
+      width: 120px;
+    }
+  }

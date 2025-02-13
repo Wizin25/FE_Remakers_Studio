@@ -1,7 +1,28 @@
 .layout {
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav-item {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.nav-item:hover {
+  color: #666;
 }
 
 main {
@@ -9,8 +30,7 @@ main {
 }
 
 footer {
-  background-color: #ffffff;
-  padding: 20px;
+  padding: 1rem;
   text-align: center;
-  box-shadow: inset 0px 4px 4px #00000040;
-} 
+  background-color: #f5f5f5;
+}
