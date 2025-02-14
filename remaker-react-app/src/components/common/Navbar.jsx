@@ -18,8 +18,8 @@ export const Navbar = () => {
 
         {/* Menu Items */}
         <div className="navbar">
-          <div className="custom">TRANG CHỦ</div>
-          <div className="d-ch-v">DỊCH VỤ</div>
+          <div className="custom" onClick={() => navigate('/')}>TRANG CHỦ</div>
+          <div className="d-ch-v" onClick={() => navigate('/service')}>DỊCH VỤ</div>
           <div className="s-n-ph-m">SẢN PHẨM</div>
           <div className="li-n-h">LIÊN HỆ</div>
         </div>

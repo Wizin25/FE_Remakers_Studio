@@ -6,16 +6,85 @@
 .content {
   max-width: 1440px;
   margin: 0 auto;
-  padding-top: 100px; /* Để tránh bị navbar che */
+  padding-top: 100px;
+}
+
+/* Mission Section */
+.mission-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #ffffff;
+}
+.mission-title {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.mission-title h2 {
+  display: inline-block;
+  padding: 10px 30px;
+  background-color: #ffffff;
+  border-radius: 25px;
+  font-size: 28px;
+  color: #333;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid #56ab2f;
+}
+
+.mission-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #a8e063 0%, #56ab2f 100%);
+}
+
+.mission-content h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.mission-item {
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.mission-item:hover {
+  transform: translateY(-5px);
+}
+
+.mission-item h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #000;
+}
+
+.mission-item p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
 }
 
 /* Banner Section */
 .banner-slider {
   position: relative;
   width: 100%;
-  height: 90%; /* Tăng chiều cao */
+  height: 90%;
   overflow: hidden;
-  margin-top: -100px; /* Để banner nằm sát navbar */
+  margin-top: -100px;
 }
 
 .slides-container {
@@ -26,7 +95,7 @@
 }
 
 .slide {
-  width: 50%; /* Đổi thành 50% vì container là 200% */
+  width: 50%;
   height: 90%;
   flex-shrink: 0;
   position: relative;
@@ -35,7 +104,7 @@
 .slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Đổi thành cover để ảnh lấp đầy */
+  object-fit: cover;
   object-position: center;
 }
 
@@ -48,10 +117,10 @@
 .slide-image img {
   width: 100%;
   height: 500px;
-  object-fit: contain; /* Changed from cover to contain */
+  object-fit: contain;
   object-position: center;
   max-height: 500px;
-  background-color: #f5f5f5; /* Added background color */
+  background-color: #f5f5f5;
 }
 
 .slide-overlay {
@@ -66,7 +135,6 @@
     rgba(0, 0, 0, 0.3)
   );
 }
-
 
 .cta-button {
   padding: 1rem 2rem;
@@ -89,7 +157,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.3); /* Màu tối hơn */
+  background: rgba(0, 0, 0, 0.3);
   border: none;
   width: 40px;
   height: 40px;
@@ -204,6 +272,7 @@
     transform: translateX(50%);
   }
 }
+
 /* Map Section */
 .map-section {
   padding: 50px 20px;
@@ -332,7 +401,6 @@
 }
 
 /* Responsive Design */
-
 @media (max-width: 768px) {
   .slide-content h2 {
     font-size: 2.5rem;
@@ -366,37 +434,36 @@
     width: 30px;
     height: 30px;
   }
+
   /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .banner-slider {
+      height: 500px;
+    }
+    
+    .slide-image img {
+      max-height: 500px;
+      object-fit: contain;
+    }
+  }
 
+  @media (max-width: 768px) {
+    .banner-slider {
+      height: 400px;
+    }
+    
+    .slide-image img {
+      max-height: 400px;
+    }
+  }
 
-@media (max-width: 1024px) {
-  .banner-slider {
-    height: 500px;
+  @media (max-width: 480px) {
+    .banner-slider {
+      height: 300px;
+    }
+    
+    .slide-image img {
+      max-height: 300px;
+    }
   }
-  
-  .slide-image img {
-    max-height: 500px;
-    object-fit: contain;
-  }
-}
-
-@media (max-width: 768px) {
-  .banner-slider {
-    height: 400px;
-  }
-  
-  .slide-image img {
-    max-height: 400px;
-  }
-}
-
-@media (max-width: 480px) {
-  .banner-slider {
-    height: 300px;
-  }
-  
-  .slide-image img {
-    max-height: 300px;
-  }
-}
 }

@@ -74,26 +74,35 @@ export const Home = () => {
 
         {/* Mission Section */}
         <section className="mission-section">
-          <div className="mission-content">
-            <h2>Sứ Mệnh Remaker</h2>
-            <div className="mission-grid">
-              <div className="mission-item">
-                <h3>Chất Lượng</h3>
-                <p>Cam kết mang đến dịch vụ chăm sóc giày chất lượng cao nhất cho khách hàng</p>
-              </div>
-              <div className="mission-item">
-                <h3>Sáng Tạo</h3>
-                <p>Không ngừng đổi mới và sáng tạo trong phương pháp phục hồi giày</p>
-              </div>
-              <div className="mission-item">
-                <h3>Tận Tâm</h3>
-                <p>Luôn đặt sự hài lòng của khách hàng lên hàng đầu</p>
+          <div className="mission-frame">
+            <div className="mission-title">
+              <h2>Sứ Mệnh Remaker</h2>
+            </div>
+            <div className="mission-content">
+              <div className="mission-grid">
+                <div className="mission-item">
+                  <h3>Chất Lượng</h3>
+                  <p>Cam kết mang đến dịch vụ chăm sóc giày chất lượng cao nhất cho khách hàng</p>
+                </div>
+                <div className="mission-item">
+                  <h3>Sáng Tạo</h3>
+                  <p>Không ngừng đổi mới và sáng tạo trong phương pháp phục hồi giày</p>
+                </div>
+                <div className="mission-item">
+                  <h3>Tận Tâm</h3>
+                  <p>Luôn đặt sự hài lòng của khách hàng lên hàng đầu</p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Activity Section */}
+        <section className="activity-title">
+          <div className="mission-title">
+            <h2>Cách Thức Hoạt Động</h2>
+          </div>
+        </section>
         <section className="activity-section">
           <div className="activity-content">
             <div className="activity-step">
@@ -115,21 +124,6 @@ export const Home = () => {
           </div>
         </section>
 
-        {/* Featured Activity Section */}
-        <section className="featured-activity">
-          <div className="featured-content">
-            <div className="featured-image">
-              <img src="/src/assets/images/featured-activity.jpg" alt="Featured Service" />
-            </div>
-            <div className="featured-text">
-              <h2>Dịch Vụ Nổi Bật</h2>
-              <h3>Custom Giày Theo Yêu Cầu</h3>
-              <p>Biến đôi giày của bạn thành tác phẩm nghệ thuật độc đáo với dịch vụ custom giày chuyên nghiệp của chúng tôi. Đội ngũ nghệ nhân giàu kinh nghiệm sẽ biến mọi ý tưởng của bạn thành hiện thực.</p>
-              <button className="learn-more">Tìm Hiểu Thêm</button>
-            </div>
-          </div>
-        </section>
-
         {/* Map Section */}
         <section className="map-section">
           <div className="map-container">
@@ -141,58 +135,6 @@ export const Home = () => {
           </div>
         </section>
 
-        {/* Footer Section */}
-        <footer className="footer-section">
-          <div className="footer-content">
-            <div className="footer-info">
-              <img className="footer-logo" alt="Logo" src="https://c.animaapp.com/T2T9GUNe/img/logo@2x.png" />
-              <div className="footer-contact">
-                <Mail />
-                <PhoneCall className="phone-call-instance" />
-              </div>
-            </div>
-
-            <div className="footer-links">
-              <div className="footer-column">
-                <h3>Dịch Vụ & Sản Phẩm</h3>
-                <ul>
-                  <li>Custom Giày</li>
-                  <li>Vệ Sinh Giày</li>
-                  <li>Phục Hồi Giày</li>
-                  <li>Phụ Kiện Giày</li>
-                  <li>Sản Phẩm Chăm Sóc Giày</li>
-                </ul>
-              </div>
-
-              <div className="footer-column">
-                <h3>Về Chúng Tôi</h3>
-                <ul>
-                  <li>Về Remakers</li>
-                  <li>Chính Sách Giao Nhận</li>
-                  <li>Chính Sách Bảo Hành</li>
-                </ul>
-              </div>
-
-              <div className="footer-column">
-                <h3>Liên Hệ & Hỗ Trợ</h3>
-                <div className="contact-info">
-                  <p>remakers@gmail.com</p>
-                  <p>0764 269 957</p>
-                  <p>Đường N2, Long Thạnh Mỹ, Quận 9, Hồ Chí Minh</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="footer-subscribe">
-              <h3>Cập Nhật Xu Hướng Mới Nhất</h3>
-              <p>Để lại e-mail của bạn để nhận ngay các tin tức, ưu đãi và xu hướng mới nhất từ REMAKERS!</p>
-              <div className="subscribe-form">
-                <input type="email" placeholder="Điền e-mail của bạn tại đây ..." />
-                <Send className="send-icon" />
-              </div>
-            </div>
-          </div>
-        </footer>
       </div>
     </div>
   );
