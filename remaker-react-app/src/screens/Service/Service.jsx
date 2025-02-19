@@ -20,7 +20,7 @@ export const Service = () => {
                 <div className="navbar2">
                     <div className="nav-item active">Custom</div>
                     <div className="nav-item">Phục hồi</div>
-                    <div className="nav-item">Vệ sinh</div>
+                    <div className="nav-item" onClick={() => navigate('/clean')}>Vệ sinh</div>
                 </div>
                 
                 <div className="grid-container" style={{
