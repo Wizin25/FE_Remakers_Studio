@@ -1,9 +1,10 @@
 import React, { useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './Service.css';
 
 export const Service = () => {
     const navigate = useNavigate();
+    const location = useLocation();
 
     const slides = [
         { src: "src/assets/images/Shoes/Shoes_1.webp", alt: "Nike P-6000", name: "Nike P-6000" },
@@ -18,9 +19,18 @@ export const Service = () => {
         <div className="service">
             <div className="content">
                 <div className="navbar2">
-                    <div className="nav-item active">Custom</div>
-                    <div className="nav-item">Phục hồi</div>
-                    <div className="nav-item">Vệ sinh</div>
+                    <div className={`nav-item ${location.pathname === '/Service' ? 'active' : ''}`} 
+                        onClick={() => navigate('/Service')}>
+                        Custom
+                    </div>
+                    <div className={`nav-item ${location.pathname === '/Service/restore' ? 'active' : ''}`}
+                        onClick={() => navigate('/restore')}>
+                        Phục hồi
+                    </div>
+                    <div className={`nav-item ${location.pathname === '/Service/clean' ? 'active' : ''}`}
+                        onClick={() => navigate('/clean')}>
+                        Vệ sinh
+                    </div>
                 </div>
                 
                 <div className="grid-container" style={{
