@@ -1,0 +1,69 @@
+.profile-container {
+    max-width: 600px; /* Giới hạn chiều rộng tối đa */
+    margin: 0 auto; /* Căn giữa */
+    padding: 20px; /* Thêm khoảng cách bên trong */
+    background-color: #ffffff; /* Màu nền trắng */
+    border-radius: 8px; /* Bo góc */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+    font-family: 'Montserrat', sans-serif; /* Sử dụng font Montserrat */
+}
+
+h1 {
+    text-align: center; /* Căn giữa tiêu đề */
+    color: #333; /* Màu chữ */
+    margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+    font-family: 'Montserrat', sans-serif; /* Sử dụng font Montserrat */
+}
+
+form {
+    display: flex; /* Sử dụng flexbox */
+    flex-direction: column; /* Cột */
+    gap: 15px; /* Khoảng cách giữa các phần tử */
+    font-family: 'Montserrat', sans-serif; /* Sử dụng font Montserrat */
+}
+
+label {
+    font-weight: bold; /* Chữ đậm cho nhãn */
+    color: #555; /* Màu chữ nhãn */
+    font-family: 'Montserrat', sans-serif; /* Sử dụng font Montserrat */
+}
+
+input {
+    padding: 10px; /* Khoảng cách bên trong */
+    border: 1px solid #ddd; /* Đường viền */
+    border-radius: 5px; /* Bo góc */
+    font-size: 16px; /* Kích thước chữ */
+    transition: border-color 0.3s; /* Hiệu ứng chuyển tiếp */
+    font-family: 'Montserrat', sans-serif; /* Sử dụng font Montserrat */
+    opacity: 0.9; /* Tăng độ mờ của chữ */
+    margin-top: 5px; /* Cách label ra 1 xíu */
+    margin-left: 10px;
+    width: 100%; /* Cho ô input dài bằng nhau */
+}
+
+input:focus {
+    border-color: #4a90e2; /* Đổi màu viền khi focus */
+    outline: none; /* Ẩn outline mặc định */
+}
+
+button {
+    padding: 10px; /* Khoảng cách bên trong */
+    background-color: #4a90e2; /* Màu nền nút */
+    color: white; /* Màu chữ nút */
+    border: none; /* Không có đường viền */
+    border-radius: 5px; /* Bo góc */
+    font-size: 16px; /* Kích thước chữ */
+    cursor: pointer; /* Con trỏ chuột khi hover */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển tiếp */
+    font-family: 'Montserrat', sans-serif; /* Sử dụng font Montserrat */
+}
+
+button:hover {
+    background-color: #357abd; /* Đổi màu nền khi hover */
+}
+.button-group {
+    display: flex; /* Sử dụng flexbox */
+    justify-content: center; /* Căn giữa các nút */
+    margin-top: 20px; /* Khoảng cách trên */
+    gap: 10px; /* Khoảng cách giữa các nút */
+}

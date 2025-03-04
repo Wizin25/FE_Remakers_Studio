@@ -8,7 +8,7 @@ export const Navbar = () => {
     <div className="nav">
       <div className="nav-container">
         {/* Logo */}
-        <div className="nav-logo">
+        <div className="nav-logo" onClick={() => navigate('/')}>
           <img
             className="logo-2"
             alt="Logo"
@@ -20,8 +20,8 @@ export const Navbar = () => {
         <div className="navbar">
           <div className="custom" onClick={() => navigate('/')}>TRANG CHỦ</div>
           <div className="d-ch-v" onClick={() => navigate('/service')}>DỊCH VỤ</div>
-          <div className="s-n-ph-m">SẢN PHẨM</div>
-          <div className="li-n-h">LIÊN HỆ</div>
+          <div className="s-n-ph-m" onClick={() => navigate('/Product')}>SẢN PHẨM</div>
+          <div className="li-n-h" onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}>LIÊN HỆ</div>
         </div>
 
         {/* User Actions */}
@@ -34,7 +34,7 @@ export const Navbar = () => {
             />
             <span>Tài khoản</span>
           </div>
-          <div className="shopping-cart">
+          <div className="shopping-cart" onClick={() => navigate('/Cart')}>
             <img
               className="cart-icon"
               alt="Cart"

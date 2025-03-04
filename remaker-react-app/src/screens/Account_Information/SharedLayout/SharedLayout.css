@@ -1,0 +1,96 @@
+/* Container layout */
+.shared-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 100px;
+    overflow: hidden;
+}
+
+/* Sidebar with slide-in animation */
+.sidebar {
+    width: 250px;
+    background-color: #e6e6e6;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
+}
+
+.shared-layout:hover .sidebar {
+    transform: translateX(0);
+}
+
+/* Arrow for sidebar */
+.sidebar::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid #e6e6e6;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Menu with smooth scaling effect */
+.menu {
+    list-style-type: none;
+    padding: 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu-item {
+    padding: 15px;
+    cursor: pointer;
+    color: #333;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    transform: scale(1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+.menu-item:nth-child(1) { animation-delay: 0.2s; }
+.menu-item:nth-child(2) { animation-delay: 0.4s; }
+.menu-item:nth-child(3) { animation-delay: 0.6s; }
+.menu-item:nth-child(4) { animation-delay: 0.8s; }
+
+.menu-item:hover {
+    transform: scale(1.1);
+    background-color: #f2f2f2;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.menu-item.active {
+    background-color: #e0e0e0;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Content area with fade-in effect */
+.content {
+    flex-grow: 1;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    animation-delay: 0.5s;
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

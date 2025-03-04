@@ -1,0 +1,134 @@
+.cart-container {
+    max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+    margin: 0 auto; /* Căn giữa */
+    padding: 20px; /* Thêm khoảng cách bên trong */
+}
+
+.cart-title {
+    margin-top: 100px;
+    text-align: center; /* Căn giữa tiêu đề */
+    font-size: 2em; /* Kích thước chữ */
+    color: #333; /* Màu chữ */
+    margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+}
+
+.cart-header {
+    display: flex; /* Sử dụng flexbox */
+    font-weight: bold; /* Chữ đậm cho tiêu đề */
+    background-color: #f4f4f4; /* Màu nền cho tiêu đề */
+    padding: 10px; /* Khoảng cách bên trong */
+    border-radius: 8px; /* Bo góc */
+}
+
+.cart-header-item {
+    flex: 1; /* Chiếm đều không gian */
+    text-align: center; /* Căn giữa nội dung */
+}
+
+.cart-items {
+    display: flex; /* Sử dụng flexbox */
+    flex-direction: column; /* Cột */
+    gap: 20px; /* Khoảng cách giữa các sản phẩm */
+}
+
+.cart-item {
+    display: flex; /* Sử dụng flexbox */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    background-color: #ffffff; /* Màu nền trắng */
+    border-radius: 8px; /* Bo góc */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+    padding: 15px; /* Khoảng cách bên trong */
+}
+
+.cart-item-image {
+    width: 100px; /* Chiều rộng hình ảnh */
+    height: auto; /* Tự động điều chỉnh chiều cao */
+    border-radius: 8px; /* Bo góc cho hình ảnh */
+}
+
+.cart-item-details {
+    flex: 2; /* Chiếm 2 phần không gian */
+    margin-left: 20px; /* Khoảng cách bên trái cho chi tiết sản phẩm */
+    display: flex; /* Sử dụng flexbox */
+    flex-direction: column; /* Cột */
+    justify-content: center; /* Căn giữa theo chiều dọc */
+}
+
+.cart-item-info {
+    display: flex; /* Sử dụng flexbox */
+    justify-content: space-between; /* Căn giữa theo chiều ngang */
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+}
+
+.cart-item-name {
+    font-size: 1.5em; /* Kích thước chữ */
+    color: #333; /* Màu chữ */
+}
+
+.cart-item-price {
+    font-size: 1.2em; /* Kích thước chữ */
+    color: #4a90e2; /* Màu chữ */
+}
+
+.cart-item-quantity {
+    display: flex; /* Sử dụng flexbox */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    flex: 1; /* Chiếm 1 phần không gian */
+}
+
+.cart-item-quantity button {
+    padding: 5px 10px; /* Khoảng cách bên trong */
+    margin: 0 5px; /* Khoảng cách giữa các nút */
+    border: none; /* Không có đường viền */
+    background-color: #4a90e2; /* Màu nền nút */
+    color: white; /* Màu chữ nút */
+    border-radius: 5px; /* Bo góc */
+    cursor: pointer; /* Con trỏ chuột khi hover */
+}
+
+.cart-item-total {
+    flex: 1; /* Chiếm 1 phần không gian */
+    text-align: center; /* Căn giữa nội dung */
+    font-size: 1.2em; /* Kích thước chữ */
+    color: #4a90e2; /* Màu chữ */
+}
+
+.remove-button {
+    padding: 5px 10px; /* Khoảng cách bên trong */
+    background-color: #e74c3c; /* Màu nền nút xóa */
+    color: white; /* Màu chữ nút xóa */
+    border: none; /* Không có đường viền */
+    border-radius: 5px; /* Bo góc */
+    cursor: pointer; /* Con trỏ chuột khi hover */
+}
+
+.cart-summary {
+    margin-top: 30px; /* Khoảng cách trên cho tổng tiền */
+    text-align: center; /* Căn giữa nội dung */
+}
+
+.cart-summary-title {
+    font-size: 1.5em; /* Kích thước chữ */
+    color: #333; /* Màu chữ */
+}
+
+.cart-summary-total {
+    font-size: 1.5em; /* Kích thước chữ */
+    color: #4a90e2; /* Màu chữ */
+    margin: 10px 0; /* Khoảng cách trên và dưới */
+}
+
+.checkout-button {
+    padding: 10px 20px; /* Khoảng cách bên trong */
+    background-color: #4a90e2; /* Màu nền nút */
+    color: white; /* Màu chữ nút */
+    border: none; /* Không có đường viền */
+    border-radius: 5px; /* Bo góc */
+    font-size: 1.2em; /* Kích thước chữ */
+    cursor: pointer; /* Con trỏ chuột khi hover */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển tiếp */
+}
+
+.checkout-button:hover {
+    background-color: #357abd; /* Đổi màu nền khi hover */
+}

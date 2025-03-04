@@ -36,13 +36,13 @@ export const Login = () => {
               />
             </div>
 
-            <button type="submit" className="login-button">
+            <button type="submit" className="login-button" onClick={() => navigate('/SharedLayout')}>
               Đăng nhập
             </button>
 
             <div className="login-footer">
               <span>Chưa có tài khoản? </span>
-              <a href="/signup" className="signup-link">Đăng ký ngay</a>
+              <a href="/Register" className="signup-link">Đăng ký ngay</a>
             </div>
           </form>
         </div>

@@ -1,0 +1,54 @@
+.product-container {
+    max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+    margin: 0 auto; /* Căn giữa */
+    padding: 20px; /* Thêm khoảng cách bên trong */
+}
+
+.poster {
+    margin-top: 100px; /* Khoảng cách trên cho poster */
+    text-align: center; /* Căn giữa nội dung */
+}
+
+.poster-image {
+    width: 100%; /* Chiều rộng 100% */
+    height: auto; /* Tự động điều chỉnh chiều cao */
+    border-radius: 8px; /* Bo góc cho poster */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+}
+
+.product-title {
+    text-align: center; /* Căn giữa tiêu đề */
+    margin: 20px 0; /* Khoảng cách trên và dưới */
+    font-size: 2em; /* Kích thước chữ */
+    color: #333; /* Màu chữ */
+}
+
+.product-grid {
+    display: grid; /* Sử dụng grid */
+    grid-template-columns: repeat(3, 1fr); /* 3 cột */
+    gap: 20px; /* Khoảng cách giữa các sản phẩm */
+}
+
+.product-card {
+    background-color: #ffffff; /* Màu nền trắng */
+    border-radius: 8px; /* Bo góc */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+    overflow: hidden; /* Ẩn phần thừa */
+    text-align: center; /* Căn giữa nội dung */
+    transition: transform 0.3s; /* Hiệu ứng chuyển tiếp */
+}
+
+.product-card:hover {
+    transform: scale(1.05); /* Phóng to khi hover */
+}
+
+.product-image {
+    width: 100%; /* Chiều rộng 100% */
+    height: auto; /* Tự động điều chỉnh chiều cao */
+}
+
+.product-name {
+    padding: 10px; /* Khoảng cách bên trong */
+    font-size: 1.2em; /* Kích thước chữ */
+    color: #333; /* Màu chữ */
+}
