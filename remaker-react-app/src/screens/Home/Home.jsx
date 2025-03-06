@@ -12,6 +12,7 @@ export const Home = () => {
   const slides = [
     {
       image: poster1,
+      onClick: () => window.location.href = '/clean',
     },
     {
       image: poster2,
@@ -46,7 +47,7 @@ export const Home = () => {
         <section className="banner-slider">
           <div className="slides-container" style={{ transform: `translateX(-${currentSlide * 50}%)` }}>
             {slides.map((slide, index) => (
-              <div key={index} className="slide">
+              <div key={index} className="slide" onClick={slide.onClick}>
                 <img src={slide.image} alt={`Slide ${index + 1}`} />
               </div>
             ))}
