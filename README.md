@@ -19,7 +19,7 @@ To install and run Remakers Studio, follow these steps:
    ```
 2. Navigate to the project directory:
    ```sh
-   cd remakers-studio
+   cd remakers-react-app
    ```
 3. Install dependencies:
    ```sh
