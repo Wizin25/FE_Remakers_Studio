@@ -15,7 +15,7 @@ To install and run Remakers Studio, follow these steps:
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/remakers-studio.git
+   git clone https://github.com/wizin25/remakers-studio.git
    ```
 2. Navigate to the project directory:
    ```sh
@@ -27,7 +27,7 @@ To install and run Remakers Studio, follow these steps:
    ```
 4. Start the application:
    ```sh
-   npm start
+   npm run dev
    ```
 
 ## Usage
