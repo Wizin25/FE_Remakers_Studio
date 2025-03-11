@@ -55,6 +55,7 @@
     display: flex;
     gap: 30px;
     align-items: center;
+    position: relative;
   }
   
   .user-account,
@@ -63,6 +64,7 @@
     align-items: center;
     gap: 8px;
     cursor: pointer;
+    position: relative;
   }
   
   .account-icon,
@@ -88,6 +90,38 @@
     justify-content: center;
     font-size: 12px;
     margin-left: 4px;
+  }
+  
+  /* Dropdown for Logout */
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 0;
+    display: none;
+  }
+  
+  .dropdown button {
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    border: none;
+    background-color: transparent;
+    font-family: "Montserrat", Helvetica;
+    font-size: 14px;
+    color: #000000;
+    cursor: pointer;
+  }
+  
+  .dropdown button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .user-account:hover .dropdown {
+    display: block;
   }
   
   /* Responsive Design */
