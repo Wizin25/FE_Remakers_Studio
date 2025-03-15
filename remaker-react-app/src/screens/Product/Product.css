@@ -1,41 +1,101 @@
 .product-container {
-    max-width: 1200px; /* Giới hạn chiều rộng tối đa */
-    margin: 0 auto; /* Căn giữa */
-    padding: 20px; /* Thêm khoảng cách bên trong */
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.poster {
-    margin-top: 100px; /* Khoảng cách trên cho poster */
-    text-align: center; /* Căn giữa nội dung */
+.banner-slider {
+    position: relative;
+    width: 100%; /* Đặt chiều rộng thành 100% để phù hợp với màn hình */
+    height: 400px; /* Giữ chiều cao cho hình ảnh 1280x400 */
+    overflow: hidden;
+    margin-top: 100px; /* Giảm khoảng cách trên */
+}
+
+.slides-container {
+    display: flex;
+    width: 100%; /* Đặt chiều rộng thành 100% để phù hợp với màn hình */
+    height: 400px; /* Giữ chiều cao cho hình ảnh 1280x400 */
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    width: 100%; /* Đặt chiều rộng thành 100% để phù hợp với màn hình */
+    height: 400px; /* Giữ chiều cao cho hình ảnh 1280x400 */
+    flex-shrink: 0;
+    position: relative;
 }
 
 .poster-image {
-    width: 100%; /* Giảm chiều rộng xuống 95% */
-    height: 100%; /* Tự động điều chỉnh chiều cao */
-    border-radius: 8px; /* Bo góc cho poster */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px; /* Thêm bo góc cho hình ảnh */
+}
+
+.poster-navigation {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.nav-button {
+    background: rgba(23, 23, 23, 0.8); /* Tăng độ trong suốt */
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+    padding: 10px;
+    transition: background 0.3s; /* Thêm hiệu ứng chuyển đổi */
+}
+
+.nav-button:hover {
+    background: rgb(3, 3, 3); /* Đổi màu khi hover */
+}
+
+.slider-dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    height: 10px; /* Tăng kích thước chấm */
+    width: 10px; /* Tăng kích thước chấm */
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #717171;
 }
 
 .product-title {
-    text-align: center; /* Căn giữa tiêu đề */
-    margin: 20px 0; /* Khoảng cách trên và dưới */
-    font-size: 2em; /* Kích thước chữ */
-    color: #333; /* Màu chữ */
+    text-align: center;
+    margin: 20px 0;
+    font-size: 24px; /* Tăng kích thước chữ tiêu đề */
+    font-weight: bold; /* Đậm chữ tiêu đề */
 }
 
 .product-grid {
-    display: grid; /* Sử dụng grid */
-    grid-template-columns: repeat(3, 1fr); /* 3 cột */
-    gap: 20px; /* Khoảng cách giữa các sản phẩm */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Tăng kích thước tối thiểu */
+    gap: 20px;
 }
 
 .product-card {
-    background-color: #ffffff; /* Màu nền trắng */
-    border-radius: 8px; /* Bo góc */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng */
-    overflow: hidden; /* Ẩn phần thừa */
-    text-align: center; /* Căn giữa nội dung */
-    transition: transform 0.3s; /* Hiệu ứng chuyển tiếp */
+    text-align: center;
+    border: 1px solid #ddd; /* Thêm viền cho thẻ sản phẩm */
+    border-radius: 8px; /* Bo góc cho thẻ sản phẩm */
+    padding: 10px; /* Thêm khoảng cách bên trong */
+    transition: transform 0.3s; /* Thêm hiệu ứng chuyển đổi */
 }
 
 .product-card:hover {
@@ -43,12 +103,42 @@
 }
 
 .product-image {
-    width: 100%; /* Chiều rộng 100% */
-    height: auto; /* Tự động điều chỉnh chiều cao */
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
 .product-name {
-    padding: 10px; /* Khoảng cách bên trong */
-    font-size: 1.2em; /* Kích thước chữ */
-    color: #333; /* Màu chữ */
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 18px; /* Tăng kích thước chữ tên sản phẩm */
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .banner-slider {
+        height: 300px; /* Giảm chiều cao cho màn hình nhỏ */
+    }
+
+    .product-title {
+        font-size: 20px; /* Giảm kích thước chữ tiêu đề */
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Giảm kích thước tối thiểu */
+    }
+
+    .product-name {
+        font-size: 16px; /* Giảm kích thước chữ tên sản phẩm */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .product-title {
+        font-size: 18px; /* Giảm kích thước chữ tiêu đề */
+    }
+
+    .product-card {
+        padding: 5px; /* Giảm khoảng cách bên trong */
+    }
 }

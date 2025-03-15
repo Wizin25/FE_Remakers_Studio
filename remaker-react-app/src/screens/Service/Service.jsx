@@ -1,6 +1,7 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './Service.css';
+import { TestApiButton } from '../TestApiButton';
 
 export const Service = () => {
     const navigate = useNavigate();
@@ -66,10 +67,10 @@ export const Service = () => {
                             <div className="info-section">
                                 <h3>Thông Tin Dịch Vụ</h3>
                                 <ul>
-                                    <li>- Giá 400.000 - 1.999.000 VNĐ</li>
-                                    <li>- Với đội ngũ nghê sĩ chuyên nghiệp, chúng tôi sẽ tư vấn ý tưởng thiết kế để biến đôi giày của bạn trở nên độc đáo, thể hiện cá tính và phong cách riêng của bạn.</li>
+                                    <li>- Giá từ 400.000 đến 1.999.000 VNĐ</li>
+                                    <li>- Với đội ngũ nghệ sĩ chuyên nghiệp, chúng tôi sẽ tư vấn ý tưởng thiết kế để biến đôi giày của bạn trở nên độc đáo, thể hiện cá tính và phong cách riêng của bạn.</li>
                                     <li>- Bảo hành 1 tháng</li>
-                                    <li>- Thời gian thực hiện 10 - 15 ngày</li>
+                                    <li>- Thời gian thực hiện từ 10 đến 15 ngày</li>
                                 </ul>
                             </div>
 
@@ -95,15 +96,16 @@ export const Service = () => {
                     <div className="booking-form">
                         <h3>Nhận Tư Vấn</h3>
                         <form>
-                            <input type="text" placeholder="Họ và Tên" />
-                            <input type="tel" placeholder="Số điện thoại" />
-                            <input type="email" placeholder="Địa chỉ Email" />
+                            <input type="text" placeholder="Họ và Tên" required />
+                            <input type="tel" placeholder="Số điện thoại" required />
+                            <input type="email" placeholder="Địa chỉ Email" required />
                             <textarea placeholder="Ghi chú" />
                             <button type="submit" className="submit-btn">GỬI</button>
                         </form>
                     </div>
                 </div>
             </div>
+            <TestApiButton />
         </div>
     );
 };

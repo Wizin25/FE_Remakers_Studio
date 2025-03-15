@@ -8,7 +8,7 @@ import { Register } from './screens/Login/Register';
 import { SharedLayout } from './screens/Account_Information/SharedLayout/SharedLayout';
 import { Product } from './screens/Product/Product';
 import { Cart } from './screens/Cart/Cart'; // Added Cart import
-
+import { TestApiButton } from './screens/TestApiButton';
 
 export const AppRoutes = () => {
   return (
@@ -22,6 +22,7 @@ export const AppRoutes = () => {
       <Route path="/SharedLayout" element={<SharedLayout />} />
       <Route path="/Product" element={<Product />} />
       <Route path="/Cart" element={<Cart />} /> {/* Added Cart route */}
+      <Route path="/TestApiButton" element={<TestApiButton />} />
     </Routes>
   );
 };
