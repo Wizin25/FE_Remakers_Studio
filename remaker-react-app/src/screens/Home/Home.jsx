@@ -1,21 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { LocationOn } from "../../components/common/LocationOn";
-import { Mail } from "../../components/common/Mail";
-import { PhoneCall } from "../../components/common/PhoneCall";
-import { Send } from "../../components/common/Send";
 import "./style.css";
-import poster1 from "../../assets/images/poster1.jpg";
-import poster2 from "../../assets/images/poster2.jpg";
-
 export const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
     {
-      image: poster1,
+      image: "https://res.cloudinary.com/dzht29nkq/image/upload/v1742025585/z6407726649516_1530f9c1e7bc2490e252b65dbfc547d2_kxpgih.jpg",
       onClick: () => window.location.href = '/clean',
     },
     {
-      image: poster2,
+      image: "https://res.cloudinary.com/dzht29nkq/image/upload/v1742025585/z6407726667451_b092fc69c6877ab8618d2ab7eb3d19a9_gbksjf.jpg",
+    },
+    {
+      image: "https://res.cloudinary.com/dzht29nkq/image/upload/v1742025584/z6407726638415_5635f6f60dbecf101070fb63536a5425_btcdrq.jpg",
     }
   ];
 
@@ -45,7 +41,7 @@ export const Home = () => {
       <div className="content">
         {/* Banner Slider Section */}
         <section className="banner-slider">
-          <div className="slides-container" style={{ transform: `translateX(-${currentSlide * 50}%)` }}>
+          <div className="slides-container" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             {slides.map((slide, index) => (
               <div key={index} className="slide" onClick={slide.onClick}>
                 <img src={slide.image} alt={`Slide ${index + 1}`} />
