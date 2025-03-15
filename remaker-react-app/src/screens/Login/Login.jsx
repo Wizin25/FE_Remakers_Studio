@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import { loginUser } from '../../services/api';
 
 export const Login = () => {
     const navigate = useNavigate();
-    
+    const [error, setError] = useState('');
+    const [showError, setShowError] = useState(false);
+
     useEffect(() => {
         const username = localStorage.getItem('username');
         if (!username) {
@@ -15,14 +17,26 @@ export const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const credentials = {
-            username: e.target.username.value,
-            password: e.target.password.value,
-        };
+        const username = e.target.username.value;
+        const password = e.target.password.value;
 
+        // Kiểm tra xem người dùng đã nhập thông tin chưa
+        if (!username || !password) {
+            setError("Vui lòng nhập tên đăng nhập và mật khẩu.");
+            return;
+        }
+
+        const credentials = { username, password };
         const response = await loginUser(credentials);
+
+        // Kiểm tra phản hồi từ API
         if (response.error) {
+            setError("Tên đăng nhập hoặc mật khẩu không chính xác.");
+            setShowError(true);
             console.error(response.error);
+            setTimeout(() => {
+                setShowError(false);
+            }, 3000); // Ẩn thông báo sau 3 giây
         } else {
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('username', credentials.username);
@@ -42,6 +56,12 @@ export const Login = () => {
                 <div className="login-content">
                     <h1 className="login-title">Chào Mừng Bạn Quay Lại</h1>
                     
+                    {showError && (
+                        <p className="error-message" style={{ animation: 'fadeIn 0.5s' }}>
+                            <span role="img" aria-label="warning">⚠️</span> {error}
+                        </p>
+                    )}
+
                     <form className="login-form" onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label htmlFor="username">Tên Đăng Nhập</label>

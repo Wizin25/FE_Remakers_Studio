@@ -66,7 +66,7 @@ export const Register = () => {
                             <label htmlFor="fullName">Họ và Tên</label>
                             <input 
                                 type="text"
-                                id="fullName"
+                                id="fullname"
                                 className="form-input"
                                 placeholder="Nhập họ và tên của bạn"
                                 value={formData.fullName}
