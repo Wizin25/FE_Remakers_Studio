@@ -10,8 +10,8 @@
 }
 
 .poster-image {
-    width: 100%; /* Chiều rộng 100% */
-    height: auto; /* Tự động điều chỉnh chiều cao */
+    width: 100%; /* Giảm chiều rộng xuống 95% */
+    height: 100%; /* Tự động điều chỉnh chiều cao */
     border-radius: 8px; /* Bo góc cho poster */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng */
 }
