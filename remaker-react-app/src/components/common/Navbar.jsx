@@ -43,7 +43,7 @@ export const Navbar = () => {
           <img
             className="logo-2"
             alt="Logo"
-            src="/src/assets/images/logo.jpg"
+            src="https://res.cloudinary.com/dzht29nkq/image/upload/v1741624468/logo_uthnzf.png?fbclid=IwY2xjawJFMD1leHRuA2FlbQIxMAABHTlBXJS3eAMzhqPkDptWl_r8r7uB9DQBP3_w0gBw8DrWLZ3p55PHZ0cDng_aem_IvKPqHc0ojp7wNf-Adhyrg"
           />
         </div>
 
@@ -81,7 +81,7 @@ export const Navbar = () => {
               <img
                 className="account-icon"
                 alt="Account"
-                src="/src/assets/images/user.jpg"
+                src="https://res.cloudinary.com/dzht29nkq/image/upload/v1741624469/user_qdg7gf.webp"
               />
               <span>Tài khoản</span>
             </div>
@@ -90,7 +90,7 @@ export const Navbar = () => {
             <img
               className="cart-icon"
               alt="Cart"
-              src="/src/assets/images/cart.jpg"
+              src="https://res.cloudinary.com/dzht29nkq/image/upload/v1741624467/cart_p0qrmb.png"
             />
             <span>Giỏ hàng</span>
           </div>

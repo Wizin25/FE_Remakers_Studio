@@ -96,7 +96,7 @@ export const Login = () => {
 
                 <div className="login-image">
                     <img 
-                        src="/src/assets/images/login-shoe.jpg" 
+                        src="https://res.cloudinary.com/dzht29nkq/image/upload/v1741624468/login-shoe_yftbc6.png" 
                         alt="Login"
                         className="side-image"
                     />

@@ -14,7 +14,7 @@ export const Restore = () => {
                 </div>
       <div className="image-comparison">
         <img 
-          src="/src/assets/images/restore_pic.png"
+          src="https://res.cloudinary.com/dzht29nkq/image/upload/v1741624469/restore_pic_nsmna7.png"
           alt="Shoe before and after restoration"
           className="comparison-image"
         />
