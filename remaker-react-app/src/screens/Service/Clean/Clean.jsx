@@ -23,7 +23,7 @@ export const Clean = () => {
                 </div>
       <div className="image-comparison">
         <img 
-          src="/src/assets/images/clean_pic.png"
+          src="https://res.cloudinary.com/dzht29nkq/image/upload/v1741624468/clean_pic_lbj724.png"
           alt="Gucci shoe before and after cleaning"
           className="comparison-image"
         />

@@ -103,19 +103,19 @@ export const Home = () => {
         <section className="activity-section">
           <div className="activity-content">
             <div className="activity-step">
-              <img src="/src/assets/images/activity1.jpg" alt="Step 1" />
+              <img src="https://res.cloudinary.com/dzht29nkq/image/upload/v1741624467/activity1_zu82su.png" alt="Step 1" />
               <p>Gửi một bức ảnh chụp đôi giày của bạn để được tư vấn dịch vụ miễn phí.</p>
             </div>
             <div className="activity-step">
-              <img src="/src/assets/images/activity2.jpg" alt="Step 2" />
+              <img src="https://res.cloudinary.com/dzht29nkq/image/upload/v1741624467/activity2_pvnu9m.png" alt="Step 2" />
               <p>Gửi đồ của bạn cho chúng tôi... và thư giãn.</p>
             </div>
             <div className="activity-step">
-              <img src="/src/assets/images/activity3.jpg" alt="Step 3" />
+              <img src="https://res.cloudinary.com/dzht29nkq/image/upload/v1741624467/activity3_z09tde.png" alt="Step 3" />
               <p>Chúng tôi cẩn thận phục hồi đồ của bạn (phép màu bắt đầu).</p>
             </div>
             <div className="activity-step">
-              <img src="/src/assets/images/activity4.jpg" alt="Step 4" />
+              <img src="https://res.cloudinary.com/dzht29nkq/image/upload/v1741624468/activity4_hgdgap.png" alt="Step 4" />
               <p>Bạn nhận lại giày đã được phục hồi hoàn hảo.</p>
             </div>
           </div>

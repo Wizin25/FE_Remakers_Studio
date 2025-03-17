@@ -30,6 +30,12 @@ export const Register = () => {
             return;
         }
 
+        // Kiểm tra họ và tên
+        if (!formData.fullName) {
+            setError("Họ và tên không được để trống!");
+            return;
+        }
+
         // Chuẩn bị dữ liệu gửi lên API
         const userData = {
             fullName: formData.fullName,
@@ -66,7 +72,7 @@ export const Register = () => {
                             <label htmlFor="fullName">Họ và Tên</label>
                             <input 
                                 type="text"
-                                id="fullname"
+                                id="fullName" // Corrected id to match state
                                 className="form-input"
                                 placeholder="Nhập họ và tên của bạn"
                                 value={formData.fullName}
@@ -140,7 +146,7 @@ export const Register = () => {
 
                 <div className="login-image">
                     <img 
-                        src="/src/assets/images/login-shoe.jpg" 
+                        src="https://res.cloudinary.com/dzht29nkq/image/upload/v1741624468/login-shoe_yftbc6.png" 
                         alt="Login"
                         className="side-image"
                     />

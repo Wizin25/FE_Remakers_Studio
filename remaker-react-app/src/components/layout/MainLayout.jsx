@@ -14,7 +14,7 @@ export const MainLayout = () => {
       <footer className="footer-section">
         <div className="footer-content">
           <div className="footer-logo">
-            <img src="/src/assets/images/logo.jpg" alt="Remakers Studio" />
+            <img src="https://res.cloudinary.com/dzht29nkq/image/upload/v1741624468/logo_uthnzf.png?fbclid=IwY2xjawJFMD1leHRuA2FlbQIxMAABHTlBXJS3eAMzhqPkDptWl_r8r7uB9DQBP3_w0gBw8DrWLZ3p55PHZ0cDng_aem_IvKPqHc0ojp7wNf-Adhyrg" alt="Remakers Studio" />
           </div>
 
           <div className="footer-links">
@@ -64,8 +64,12 @@ export const MainLayout = () => {
               Đường N2, Long Thạnh Mỹ, Quận 9, Hồ Chí Minh, Việt Nam
             </p>
             <div className="social-icons">
-              <a href="#"><img src="/path/to/tiktok-icon.png" alt="TikTok" /></a>
-              <a href="#"><img src="/path/to/facebook-icon.png" alt="Facebook" /></a>
+              <a href="https://www.tiktok.com/@remakers_chamgiayuytin" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.freepik.com/premium-vector/tiktok-logo_628407-1683.jpg" alt="TikTok" />
+              </a>
+              <a href="https://www.facebook.com/remakersvesinhgiay" target="_blank" rel="noopener noreferrer">
+                <img src="https://inuvdp.com/wp-content/uploads/2022/05/logo-facebook-01.jpg" alt="Facebook" />
+              </a>
             </div>
           </div>
         </div>
