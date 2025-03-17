@@ -171,4 +171,24 @@
       height: 36px;
       width: 120px;
     }
+  @media (max-width: 375px) {
+    .navbar {
+      flex-direction: column; /* Stack menu items vertically */
+      gap: 20px; /* Adjust gap between items */
+    }
+  
+    .nav-actions {
+      flex-direction: column; /* Stack user actions vertically */
+      gap: 10px; /* Adjust gap between actions */
+    }
+  
+    .nav-logo {
+      flex: 0 0 100px; /* Adjust logo size */
+    }
+  
+    .logo-2 {
+      height: 30px;
+      width: 100px; /* Adjust logo size for smaller screens */
+    }
+  }
   }
