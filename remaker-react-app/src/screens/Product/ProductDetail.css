@@ -1,0 +1,51 @@
+.product-detail {
+    text-align: center;
+    max-width: 800px;
+    margin: 200px auto; /* Centering the margin */
+    padding: 20px; /* Adding padding for better spacing */
+    background-color: #f9f9f9; /* Light background for contrast */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    font-family: 'Montserrat', sans-serif;
+}
+
+.product-detail img {
+    width: 250px;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 15px; /* Matching border radius with the container */
+    transition: transform 0.3s; /* Smooth zoom effect */
+}
+
+.product-detail img:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+}
+
+.product-description {
+    font-size: 18px; /* Increased font size for better readability */
+    margin: 15px 0; /* More spacing around the description */
+    color: #333; /* Darker text color for contrast */
+}
+
+.product-price {
+    font-size: 24px; /* Increased font size for emphasis */
+    font-weight: bold;
+    color: #e74c3c; /* Changed color for a more vibrant look */
+    margin: 10px 0; /* Added margin for spacing */
+}
+
+.add-to-cart {
+    background-color: #3498db; /* Changed to a more appealing blue */
+    color: white;
+    padding: 12px 25px; /* Increased padding for a better button size */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px; /* Increased font size for better visibility */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition effects */
+}
+
+.add-to-cart:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
