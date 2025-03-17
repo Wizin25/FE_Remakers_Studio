@@ -1,90 +1,102 @@
-import React, { useState } from 'react';
+import React, { useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 export const TestApiButton = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [htmlContent, setHtmlContent] = useState('');
+    const apiUrl = "http://157.66.27.96:8080/api/proxy?url=https%3A%2F%2Fwww.nike.com%2Fsg%2Fu%2Fcustom-dunk-low-premium-10001934%2F2959510257";
 
-    const apiUrl = 'http://157.66.27.96:8080/api/proxy?url=https%3A%2F%2Fwww.nike.com%2Fsg%2Fu%2Fcustom-dunk-low-premium-10001934%2F2959510257';
+    useEffect(() => {
+        // Đảm bảo Bootstrap JavaScript đã được load
+        const modal = document.getElementById('customizerModal');
+        if (modal) {
+            modal.addEventListener('show.bs.modal', function () {
+                const iframe = document.getElementById('nikeIframe');
+                if (iframe) {
+                    // Luôn set src mới khi mở modal
+                    iframe.src = apiUrl;
+                }
+            });
 
-    const handleClick = async () => {
-        try {
-            const response = await fetch(apiUrl);
-            if (!response.ok) {
-                throw new Error(`Error ${response.status}: ${response.statusText}`);
-            }
-            const text = await response.text(); // Lấy nội dung HTML
-            setHtmlContent(text);
-            setIsOpen(true); // Mở modal
-        } catch (error) {
-            console.error("Lỗi khi gọi API:", error);
+            // Không cần xóa src khi đóng modal nữa
+            // modal.addEventListener('hide.bs.modal', function () {
+            //     const iframe = document.getElementById('nikeIframe');
+            //     if (iframe) {
+            //         iframe.src = '';
+            //     }
+            // });
         }
-    };
-
-    const closeModal = () => {
-        setIsOpen(false);
-        setHtmlContent(''); // Reset nội dung khi đóng modal
-    };
+    }, []);
 
     return (
-        <div>
-            <button onClick={handleClick} style={buttonStyle}>
-                Kiểm Tra API
+        <div className="customizer-container" style={containerStyle}>
+            <button 
+                type="button" 
+                className="btn btn-primary" 
+                data-bs-toggle="modal" 
+                data-bs-target="#customizerModal"
+                style={buttonStyle}
+            >
+                Thiết Kế Giày
             </button>
 
-            {isOpen && (
-                <div style={modalOverlayStyle}>
-                    <div style={modalStyle}>
-                        <button onClick={closeModal} style={closeButtonStyle}>Đóng</button>
-                        <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+            <div 
+                className="modal fade" 
+                id="customizerModal" 
+                tabIndex="-1" 
+                aria-labelledby="customizerModalLabel" 
+                aria-hidden="true"
+            >
+                <div className="modal-dialog modal-xl modal-dialog-centered">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="customizerModalLabel">
+                                Nike Shoe Customizer
+                            </h5>
+                            <button 
+                                type="button" 
+                                className="btn-close" 
+                                data-bs-dismiss="modal" 
+                                aria-label="Close"
+                            ></button>
+                        </div>
+                        <div className="modal-body p-0">
+                            <iframe 
+                                id="nikeIframe"
+                                title="Nike Customizer"
+                                style={iframeStyle}
+                            ></iframe>
+                        </div>
                     </div>
                 </div>
-            )}
+            </div>
         </div>
     );
 };
 
-// Style cho nút
-const buttonStyle = {
-    padding: '10px 20px',
-    backgroundColor: '#007bff',
-    color: 'white',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    fontSize: '16px',
-    transition: 'background-color 0.3s',
-};
-
-// Style cho modal
-const modalOverlayStyle = {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+// Styles
+const containerStyle = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    zIndex: 1000,
+    padding: '20px'
 };
 
-const modalStyle = {
-    backgroundColor: 'white',
-    padding: '20px',
-    borderRadius: '8px',
-    width: '80%',
-    maxHeight: '80%',
-    overflowY: 'auto',
-};
-
-const closeButtonStyle = {
-    background: 'red',
-    color: 'white',
+const buttonStyle = {
+    backgroundColor: '#333',
     border: 'none',
+    padding: '10px 20px',
+    fontSize: '16px',
     borderRadius: '5px',
     cursor: 'pointer',
-    padding: '5px 10px',
-    float: 'right',
+    transition: 'background-color 0.3s',
+    color: 'white'  // Thêm màu chữ trắng cho button
 };
 
+const iframeStyle = {
+    width: '100%',
+    height: '80vh',
+    border: 'none',
+    borderRadius: '0 0 6px 6px'
+};
+
+export default TestApiButton;
