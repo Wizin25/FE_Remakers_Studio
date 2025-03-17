@@ -49,10 +49,10 @@ export const Navbar = () => {
 
         {/* Menu Items */}
         <div className="navbar">
-          <div className="custom" onClick={() => { navigate('/'); window.scrollTo(0, 0); }}>TRANG CHỦ</div>
-          <div className="d-ch-v" onClick={() => { navigate('/service'); window.scrollTo(0, 0); }}>DỊCH VỤ</div>
-          <div className="s-n-ph-m" onClick={() => { navigate('/Product'); window.scrollTo(0, 0); }}>SẢN PHẨM</div>
-          <div className="li-n-h" onClick={() => { window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }); }}>LIÊN HỆ</div>
+          <div className="nav-home" onClick={() => { navigate('/'); window.scrollTo(0, 0); }}>TRANG CHỦ</div>
+          <div className="nav-service" onClick={() => { navigate('/service'); window.scrollTo(0, 0); }}>DỊCH VỤ</div>
+          <div className="nav-product" onClick={() => { navigate('/Product'); window.scrollTo(0, 0); }}>SẢN PHẨM</div>
+          <div className="nav-contact" onClick={() => { window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }); }}>LIÊN HỆ</div>
         </div>
 
         {/* User Actions */}

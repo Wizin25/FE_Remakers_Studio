@@ -18,14 +18,48 @@
     align-items: center;
     padding: 0 40px;
   }
-  
+  .nav-home {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .nav-service {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .nav-product {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .nav-contact {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
   /* Logo */
   .nav-logo {
     flex: 0 0 200px;
   }
   
   .logo-2 {
-    height: 104px;
+    height: 100px;
     width: 200px;
     object-fit: contain;
   }
@@ -127,68 +161,111 @@
   /* Responsive Design */
   @media (max-width: 1024px) {
     .navbar {
-      gap: 40px;
+      gap: 30px !important; /* Reduced gap */
+      font-size: 12px !important; /* Smaller font size */
     }
   
     .nav-container {
-      padding: 0 20px;
+      padding: 0 15px !important; /* Reduced padding */
+    }
+
+    .nav-home, .nav-service, .nav-product, .nav-contact {
+      font-size: 12px !important; /* Adjusted font size for medium screens */
     }
   }
   
   @media (max-width: 768px) {
     .navbar {
-      display: none; /* Hide menu items on mobile */
+      gap: 20px !important; /* Reduced gap */
+      font-size: 12px !important; /* Smaller font size */
     }
   
     .nav-logo {
-      flex: 0 0 150px;
+      flex: 0 0 140px !important; /* Adjusted logo size */
     }
   
     .logo-2 {
-      height: 45px;
-      width: 150px;
+      height: 40px !important; /* Adjusted logo height */
+      width: 140px !important; /* Adjusted logo width */
     }
   
     .nav-actions span {
-      display: none; /* Hide text, show only icons */
+      display: none !important; /* Hide text, show only icons */
     }
   
     .nav-actions {
-      gap: 20px;
+      gap: 15px !important; /* Reduced gap */
+    }
+
+    .nav-home, .nav-service, .nav-product, .nav-contact {
+      font-size: 10px !important; /* Adjusted font size for smaller screens */
     }
   }
   
   @media (max-width: 480px) {
     .nav {
-      height: 80px;
+      height: 70px !important; /* Further reduced height */
     }
   
     .nav-logo {
-      flex: 0 0 120px;
+      flex: 0 0 100px !important; /* Adjusted logo size */
     }
   
     .logo-2 {
-      height: 36px;
-      width: 120px;
+      height: 30px !important; /* Adjusted logo height */
+      width: 100px !important; /* Adjusted logo width */
     }
+
+    .nav-home, .nav-service, .nav-product, .nav-contact {
+      font-size: 9px !important; /* Further adjusted font size for small screens */
+    }
+  }
+  
   @media (max-width: 375px) {
     .navbar {
-      flex-direction: column; /* Stack menu items vertically */
-      gap: 20px; /* Adjust gap between items */
+      flex-direction: column !important; /* Stack menu items vertically */
+      gap: 15px !important; /* Adjusted gap between items */
+      font-size: 10px !important; /* Smaller font size */
     }
   
     .nav-actions {
-      flex-direction: column; /* Stack user actions vertically */
-      gap: 10px; /* Adjust gap between actions */
+      flex-direction: column !important; /* Stack user actions vertically */
+      gap: 8px !important; /* Adjusted gap between actions */
     }
   
     .nav-logo {
-      flex: 0 0 100px; /* Adjust logo size */
+      flex: 0 0 80px !important; /* Adjusted logo size */
     }
   
     .logo-2 {
-      height: 30px;
-      width: 100px; /* Adjust logo size for smaller screens */
+      height: 24px !important; /* Adjusted logo height */
+      width: 80px !important; /* Adjusted logo width */
+    }
+
+    .nav-home, .nav-service, .nav-product, .nav-contact {
+      font-size: 8px !important; /* Further adjusted font size for very small screens */
     }
   }
+  
+  @media (max-width: 320px) {
+    .nav {
+      height: 60px !important; /* Further reduced height for very small screens */
+    }
+  
+    .nav-logo {
+      flex: 0 0 70px !important; /* Adjusted logo size for very small screens */
+    }
+  
+    .logo-2 {
+      height: 20px !important; /* Adjusted logo height */
+      width: 70px !important; /* Adjusted logo width */
+    }
+  
+    .navbar {
+      gap: 5px !important; /* Further reduced gap between menu items */
+    }
+  
+    .nav-actions {
+      gap: 3px !important; /* Further reduced gap between user actions */
+    }
   }
