@@ -63,3 +63,7 @@ export const loginUser = async (credentials) => {
 export const getUserInfo = async () => {
   return api.get('/Authentication/getMyInfo');
 };
+
+export const getProduct = async ()  => {
+  return api.get('/Product?sortColumn=Name&sortDirection=Ascending&pageNumber=1&pageSize=10');
+}

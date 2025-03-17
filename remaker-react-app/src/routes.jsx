@@ -9,6 +9,7 @@ import { SharedLayout } from './screens/Account_Information/SharedLayout/SharedL
 import { Product } from './screens/Product/Product';
 import { Cart } from './screens/Cart/Cart'; // Added Cart import
 import { TestApiButton } from './screens/TestApiButton';
+import {ProductDetail} from "./screens/Product/ProductDetail";
 
 export const AppRoutes = () => {
   return (
@@ -23,6 +24,7 @@ export const AppRoutes = () => {
       <Route path="/Product" element={<Product />} />
       <Route path="/Cart" element={<Cart />} /> {/* Added Cart route */}
       <Route path="/TestApiButton" element={<TestApiButton />} />
+      <Route path="/product/:id" element={<ProductDetail />} /> 
     </Routes>
   );
 };
