@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getProduct } from '../../services/api'; // Import API function
 import './Product.css'; // Import CSS
 
@@ -9,7 +9,9 @@ export const Product = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const posterImages = [
         { image: "https://res.cloudinary.com/dzht29nkq/image/upload/v1742025584/z6407726619496_95079064fe2c127a8ab44fedd4c5c01a_ckeq3p.jpg" },
-        { image: "https://res.cloudinary.com/dzht29nkq/image/upload/v1742025584/z6407726619489_71c44dbc06ce90b498a325669d7bbcee_yxzdnr.jpg" }
+        { image: "https://res.cloudinary.com/dzht29nkq/image/upload/v1742025584/z6407726619489_71c44dbc06ce90b498a325669d7bbcee_yxzdnr.jpg" },
+        { image: "https://res.cloudinary.com/dzht29nkq/image/upload/v1741882847/product_poster_3_mg6mad.webp"},
+        { image: "https://res.cloudinary.com/dzht29nkq/image/upload/v1741882847/product_poster_2_wdddna.webp"}
     ];
 
     useEffect(() => {
@@ -36,13 +38,15 @@ export const Product = () => {
         };
         fetchProducts();
     }, []);
-// ✅ Hàm thêm sản phẩm vào giỏ hàng
-const addToCart = (product) => {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.push(product);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert(`${product.productName} đã được thêm vào giỏ hàng!`);
-};
+    
+    // ✅ Hàm thêm sản phẩm vào giỏ hàng
+    const addToCart = (product) => {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push(product);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert(`${product.productName} đã được thêm vào giỏ hàng!`);
+    };
+
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentSlide((prev) => (prev === posterImages.length - 1 ? 0 : prev + 1));
@@ -54,6 +58,7 @@ const addToCart = (product) => {
     const goToDetailPage = (productId) => {
         navigate(`/product/${productId}`); // ✅ Đảm bảo đường dẫn đúng
     };
+
     const formatPrice = (price) => {
         return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " VND"; // Format price with dots
     };
@@ -83,7 +88,15 @@ const addToCart = (product) => {
                             <h2 className="product-name">{product.productName}</h2>
                             <p className="product-price">{formatPrice(product.price)}</p>
                         </div>
-                        <button className="add-to-cart" onClick={() => addToCart(product)}>Thêm vào giỏ hàng</button>
+                        <button 
+                            className="add-to-cart"
+                            onClick={(e) => {
+                                e.stopPropagation(); // Ngăn chặn sự kiện click lan ra ngoài
+                                addToCart(product);
+                            }}
+                        >
+                            Thêm vào giỏ hàng
+                        </button>
                     </div>
                 )) : <p>Không có sản phẩm nào.</p>}
             </div>

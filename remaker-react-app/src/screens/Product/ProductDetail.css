@@ -34,18 +34,4 @@
     margin: 10px 0; /* Added margin for spacing */
 }
 
-.add-to-cart {
-    background-color: #3498db; /* Changed to a more appealing blue */
-    color: white;
-    padding: 12px 25px; /* Increased padding for a better button size */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px; /* Increased font size for better visibility */
-    transition: background-color 0.3s, transform 0.3s; /* Smooth transition effects */
-}
 
-.add-to-cart:hover {
-    background-color: #2980b9; /* Darker blue on hover */
-    transform: translateY(-2px); /* Slight lift effect on hover */
-}

@@ -114,6 +114,23 @@
     font-size: 18px; /* Tăng kích thước chữ tên sản phẩm */
 }
 
+.add-to-cart {
+    background-color: #4CAF50 !important; /* Màu xanh lá */
+    color: white!important; /* Màu chữ trắng */
+    border: none!important; /* Không viền */
+    border-radius: 5px!important; /* Bo góc */
+    padding: 8px 12px!important; /* Khoảng cách bên trong */
+    font-size: 14px!important; /* Kích thước chữ nhỏ */
+    cursor: pointer!important; /* Con trỏ chuột khi hover */
+    transition: background-color 0.3s, transform 0.3s!important; /* Hiệu ứng chuyển đổi */
+    display: inline-block!important; /* Đảm bảo button nhận CSS */
+}
+
+.add-to-cart:hover {
+    background-color: #45a049!important; /* Màu xanh lá đậm khi hover */
+    transform: scale(1.05)!important; /* Phóng to khi hover */
+}
+
 /* Media Queries */
 @media screen and (max-width: 768px) {
     .banner-slider {
