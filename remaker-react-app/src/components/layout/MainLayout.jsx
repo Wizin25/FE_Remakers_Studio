@@ -32,9 +32,10 @@ export const MainLayout = () => {
             <div className="footer-column">
               <h3>Về Chúng Tôi</h3>
               <ul>
-                <li>Về Remakers</li>
-                <li>Chính Sách Giao Nhận</li>
-                <li>Chính Sách Bảo Hành</li>
+                
+                <li>Nhóm Chuyên Gia</li>
+                <li>Đối Tác Chiến Lược</li>
+                <li>Liên Hệ Với Chúng Tôi</li>
               </ul>
             </div>
 
@@ -50,7 +51,7 @@ export const MainLayout = () => {
             <p>Để lại e-mail của bạn để nhận ngay các tin tức, ưu đãi và xu hướng mới nhất từ REMAKERS!</p>
             <div className="subscribe-form">
               <input type="text" placeholder="Điền e-mail của bạn tại đây ..." />
-              <button type="submit">➔</button>
+              <button type="button" onClick={() => alert('Email submitted!')}>Gửi</button>
             </div>
           </div>
 
