@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
+import MapComponent from './MapComponent';
+import OpenStreetMap from "./OpenStreetMap";
 export const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
@@ -123,12 +125,11 @@ export const Home = () => {
 
         {/* Map Section */}
         <section className="map-section">
+          <div className="mission-title">
+            <h2>Bản Đồ Địa Điểm</h2>
+          </div>
           <div className="map-container">
-            <img
-              className="map-image"
-              alt="Map"
-              src="https://c.animaapp.com/T2T9GUNe/img/ggmap.png"
-            />
+            <OpenStreetMap />
           </div>
         </section>
 

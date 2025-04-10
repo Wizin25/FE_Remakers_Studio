@@ -112,10 +112,13 @@ footer {
 
 .subscribe-form button {
   padding: 10px 20px;
-  background: none;
+  background: rgb(12, 160, 54); /* Added background color for visibility */
   border: none;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 15px;
+  color: #fff; /* Changed text color to white for contrast */
+  display: block; /* Ensures the button is displayed as a block element */
+  margin: 0 auto; /* Centers the button horizontally */
 }
 
 .footer-bottom {
