@@ -8,12 +8,12 @@ export const Service = () => {
     const location = useLocation();
 
     const slides = [
-        { src: "src/assets/images/Shoes/Shoes_1.webp", alt: "Nike P-6000", name: "Nike P-6000" },
-        { src: "src/assets/images/Shoes/Shoes_2.webp", alt: "Nike Blazer Mid '77", name: "Nike Blazer Mid '77" },
-        { src: "src/assets/images/Shoes/Shoes_3.webp", alt: "Nike Air Force 1 High", name: "Nike Air Force 1 High" },
-        { src: "src/assets/images/Shoes/Shoes_4.webp", alt: "Nike Hurache Run", name: "Nike Hurache Run" },
-        { src: "src/assets/images/Shoes/Shoes_5.webp", alt: "Nike Air Max 97", name: "Nike Air Max 97" },
-        { src: "src/assets/images/Shoes/Shoes_6.webp", alt: "Nike Dunk Low", name: "Nike Dunk Low" },
+        { src: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/fa1bceaf-21bc-44b5-853b-33eac3c34e2b/WMNS+NIKE+P-6000.png", alt: "Nike P-6000", name: "Nike P-6000" },
+        { src: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/7dcc6fd4-b41c-493e-85bd-58b8944b6b1d/W+BLAZER+MID+%2777.png", alt: "Nike Blazer Mid '77", name: "Nike Blazer Mid '77" },
+        { src: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/705e7806-a5f4-415c-99de-b01e6fda9b4c/AIR+FORCE+1+%2707.png", alt: "Nike Air Force 1", name: "Nike Air Force 1" },
+        { src: "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/b535f796-2dcb-4482-9017-16f151c8782e/custom-huarache-run-by-you.png", alt: "Nike Hurache Run", name: "Nike Hurache Run" },
+        { src: "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/fa167834-731f-47d5-bdc3-8578415c02df/custom-nike-air-max-97-shoes-by-you.png", alt: "Nike Air Max 97", name: "Nike Air Max 97" },
+        { src: "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/3b58d490-7e40-4768-b023-ac7c6dbc081e/custom-dunk-low-unlocked-by-you.png", alt: "Nike Dunk Low", name: "Nike Dunk Low" },
     ];
 
     return (
