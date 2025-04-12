@@ -45,13 +45,22 @@ export const MainLayout = () => {
               <p>0764 269 957</p>
             </div>
           </div>
-
           <div className="footer-subscribe">
             <h3>Cập Nhật Xu Hướng Mới Nhất</h3>
             <p>Để lại e-mail của bạn để nhận ngay các tin tức, ưu đãi và xu hướng mới nhất từ REMAKERS!</p>
             <div className="subscribe-form">
-              <input type="text" placeholder="Điền e-mail của bạn tại đây ..." />
-              <button type="button" onClick={() => alert('Email submitted!')}>Gửi</button>
+              <input type="email" id="emailInput" placeholder="Điền e-mail của bạn tại đây ..." />
+              <button type="button" onClick={() => {
+                const email = document.getElementById('emailInput').value;
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regex for email validation
+                if (email.trim() === '') {
+                  alert('Vui lòng nhập email của bạn!');
+                } else if (!emailPattern.test(email)) {
+                  alert('Email không đúng định dạng! Vui lòng nhập lại.');
+                } else {
+                  alert('Email đã gửi thành công! Chúng tôi sẽ cập nhật cho bạn những thông tin mới nhất.');
+                }
+              }}>Gửi</button>
             </div>
           </div>
 
