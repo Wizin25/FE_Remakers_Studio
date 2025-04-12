@@ -67,3 +67,13 @@ export const getUserInfo = async () => {
 export const getProduct = async ()  => {
   return api.get('/Product?sortColumn=Name&sortDirection=Ascending&pageNumber=1&pageSize=10');
 }
+
+export const fetchServiceCategories = async () => {
+  return api.get('/ServiceCategory');
+};
+
+// Gửi yêu cầu dịch vụ
+export const submitServiceRequest = async (data) => {
+  return api.post('/ServiceRequest', data);
+};
+

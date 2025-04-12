@@ -1,11 +1,60 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './Service.css';
 import { TestApiButton } from '../TestApiButton';
+import { submitServiceRequest } from '../../services/api';
 
 export const Service = () => {
     const navigate = useNavigate();
     const location = useLocation();
+
+    const CUSTOM_CATEGORY_ID = "3fa85f64-5717-4562-b3fc-2c963f66afa6";
+
+    const [formData, setFormData] = useState({
+        fullName: '',
+        phoneNumber: '',
+        linkFacebook: '',
+        linkShareNike: '',
+        description: ''
+    });
+
+    const handleChange = (e) => {
+        setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const userId = localStorage.getItem('userId');
+
+        const payload = {
+            ...formData,
+            servicesCategoryId: CUSTOM_CATEGORY_ID,
+            createDate: new Date().toISOString()
+        };
+
+        if (userId) {
+            payload.userId = userId;
+        }
+
+        try {
+            const response = await submitServiceRequest(payload);
+            if (response.success) {
+                alert("Gửi yêu cầu thành công!");
+                setFormData({
+                    fullName: '',
+                    phoneNumber: '',
+                    linkFacebook: '',
+                    linkShareNike: '',
+                    description: ''
+                });
+            } else {
+                alert("Gửi yêu cầu thất bại!");
+            }
+        } catch (error) {
+            console.error("Lỗi khi gửi yêu cầu:", error);
+            alert("Đã có lỗi xảy ra khi kết nối máy chủ.");
+        }
+    };
 
     const slides = [
         { src: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/fa1bceaf-21bc-44b5-853b-33eac3c34e2b/WMNS+NIKE+P-6000.png", alt: "Nike P-6000", name: "Nike P-6000" },
@@ -20,19 +69,11 @@ export const Service = () => {
         <div className="service">
             <div className="content">
                 <div className="navbar2">
-                    <div className={`nav-item ${location.pathname === '/Service' ? 'active' : ''}`} 
-                        onClick={() => navigate('/Service')}>
-                        Custom
-                    </div>
-                    <div className={`nav-item ${location.pathname === '/Service/restore' ? 'active' : ''}`}
-                        onClick={() => navigate('/restore')}>
-                        Phục hồi
-                    </div>
-                    <div className={`nav-item ${location.pathname === '/Service/clean' ? 'active' : ''}`}
-                        onClick={() => navigate('/clean')}>
-                        Vệ sinh
-                    </div>
+                    <div className={`nav-item ${location.pathname === '/Service' ? 'active' : ''}`} onClick={() => navigate('/Service')}>Custom</div>
+                    <div className={`nav-item ${location.pathname === '/restore' ? 'active' : ''}`} onClick={() => navigate('/restore')}>Phục hồi</div>
+                    <div className={`nav-item ${location.pathname === '/clean' ? 'active' : ''}`} onClick={() => navigate('/clean')}>Vệ sinh</div>
                 </div>
+                
                 <div className="service-content1">
                     <div className="grid-container" style={{
                         display: 'grid',
@@ -41,39 +82,28 @@ export const Service = () => {
                         padding: '20px'
                     }}>
                         {slides.map((slide, idx) => (
-                            <div className="grid-item" key={idx} style={{
-                                textAlign: 'center'
-                            }}>
-                                <img 
-                                    src={slide.src} 
-                                    alt={slide.alt}
-                                    style={{
-                                        width: '100%',
-                                        height: 'auto',
-                                        borderRadius: '8px',
-                                        transition: 'transform 0.3s ease'
-                                    }}
-                                />
+                            <div className="grid-item" key={idx} style={{ textAlign: 'center' }}>
+                                <img src={slide.src} alt={slide.alt} style={{ width: '100%', borderRadius: '8px', transition: 'transform 0.3s ease' }} />
                                 <p style={{ marginTop: '10px' }}><b>{slide.name}</b></p>
+                               
                             </div>
                         ))}
                     </div>
                 </div>
+
                 <div className="service-content">
                     <div className="service-info">
                         <h2>DỊCH VỤ CUSTOM</h2>
-                        
                         <div className="service-details">
                             <div className="info-section">
                                 <h3>Thông Tin Dịch Vụ</h3>
                                 <ul>
                                     <li>- Giá từ 400.000 đến 1.999.000 VNĐ</li>
-                                    <li>- Với đội ngũ nghệ sĩ chuyên nghiệp, chúng tôi sẽ tư vấn ý tưởng thiết kế để biến đôi giày của bạn trở nên độc đáo, thể hiện cá tính và phong cách riêng của bạn.</li>
+                                    <li>- Thiết kế độc quyền, thể hiện cá tính</li>
                                     <li>- Bảo hành 1 tháng</li>
-                                    <li>- Thời gian thực hiện từ 10 đến 15 ngày</li>
+                                    <li>- Thời gian từ 10 đến 15 ngày</li>
                                 </ul>
                             </div>
-
                             <div className="info-section">
                                 <h3>Thời Gian</h3>
                                 <ul>
@@ -81,25 +111,26 @@ export const Service = () => {
                                     <li>- Chủ nhật: 9:00 - 17:00</li>
                                 </ul>
                             </div>
-
                             <div className="info-section">
                                 <h3>Quy Trình Thực Hiện</h3>
                                 <ol>
                                     <li>- Lên ý tưởng thiết kế</li>
-                                    <li>- Tạo bản vẽ 3D bằng phần mềm</li>
-                                    <li>- Chốt thiết kế và bắt đầu thi công</li>
-                                    <li>- Hoàn thiện sản phẩm</li>
+                                    <li>- Vẽ demo 3D</li>
+                                    <li>- Thi công</li>
+                                    <li>- Hoàn thiện và bàn giao</li>
                                 </ol>
                             </div>
                         </div>
                     </div>
+
                     <div className="booking-form">
                         <h3>Nhận Tư Vấn</h3>
-                        <form>
-                            <input type="text" placeholder="Họ và Tên" required />
-                            <input type="tel" placeholder="Số điện thoại" required />
-                            <input type="email" placeholder="Địa chỉ Email" required />
-                            <textarea placeholder="Ghi chú" />
+                        <form onSubmit={handleSubmit}>
+                            <input type="text" name="fullName" placeholder="Họ và Tên" value={formData.fullName} onChange={handleChange} required />
+                            <input type="tel" name="phoneNumber" placeholder="Số điện thoại" value={formData.phoneNumber} onChange={handleChange} required />
+                            <input type="text" name="linkFacebook" placeholder="Link Facebook (tuỳ chọn)" value={formData.linkFacebook} onChange={handleChange} />
+                            <input type="text" name="linkShareNike" placeholder="Link share mẫu Nike (tuỳ chọn)" value={formData.linkShareNike} onChange={handleChange} />
+                            <textarea name="description" placeholder="Ghi chú" value={formData.description} onChange={handleChange} />
                             <button type="submit" className="submit-btn">GỬI</button>
                         </form>
                     </div>
