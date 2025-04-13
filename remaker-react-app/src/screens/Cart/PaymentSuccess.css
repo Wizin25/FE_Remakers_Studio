@@ -75,3 +75,38 @@
     transform: scale(1.05) rotate(5deg); /* Slightly enlarge and rotate on hover */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Added shadow effect on hover */
 }
+.error-container {
+    margin-top: 100px;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 20px;
+    color: #ff0000; /* Red color for error messages */
+}
+
+.error-container h2 {
+    margin-top: 150px;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.cancel-container {
+    margin-top: 140px;
+    text-align: center;
+    font-size: 20px;
+    color: #ff0000; /* Red color for cancel messages */
+    animation: fadeIn 0.5s ease-in-out; /* Added fade-in animation */
+}
+
+.cancel-title {
+    margin-top: 150px;
+    font-size: 28px;
+    margin-bottom: 20px;
+    animation: bounce 1s infinite; /* Added bounce animation */
+}
+
+.cancel-message {
+    font-size: 18px;
+    margin: 20px 0;
+    animation: slideIn 0.5s ease-in-out; /* Added slide-in animation */
+}
+
