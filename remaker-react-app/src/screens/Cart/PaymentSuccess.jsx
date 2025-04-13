@@ -6,14 +6,14 @@ const PaymentSuccess = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
 
-  if (!state || !state.orderId || !state.userInfo || !state.cartItems) {
+  /*if (!state || !state.orderId || !state.userInfo || !state.cartItems) {
     return (
       <div className="error-container">
         <h2>Không có thông tin đơn hàng.</h2>
         <button className="back-button" onClick={() => navigate('/')}>Về trang chủ</button>
       </div>
     );
-  }
+  }*/
 
   return (
     <div className="success-container">
