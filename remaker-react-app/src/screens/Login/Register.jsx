@@ -6,7 +6,7 @@ import './Login.css'; // Sử dụng CSS của trang đăng nhập
 export const Register = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        fullName: '',
+        fullname: '',
         email: '',
         username: '',
         password: '',
@@ -31,14 +31,14 @@ export const Register = () => {
         }
 
         // Kiểm tra họ và tên
-        if (!formData.fullName) {
+        if (!formData.fullname) {
             setError("Họ và tên không được để trống!");
             return;
         }
 
         // Chuẩn bị dữ liệu gửi lên API
         const userData = {
-            fullName: formData.fullName,
+            fullname: formData.fullname,
             email: formData.email,
             username: formData.username,
             password: formData.password
@@ -69,13 +69,13 @@ export const Register = () => {
 
                     <form className="login-form" onSubmit={handleSubmit}>
                         <div className="form-group">
-                            <label htmlFor="fullName">Họ và Tên</label>
+                            <label htmlFor="fullname">Họ và Tên</label>
                             <input 
                                 type="text"
-                                id="fullName" // Corrected id to match state
+                                id="fullname" // Corrected id to match state
                                 className="form-input"
                                 placeholder="Nhập họ và tên của bạn"
-                                value={formData.fullName}
+                                value={formData.fullname}
                                 onChange={handleChange}
                                 required
                             />

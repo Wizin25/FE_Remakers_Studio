@@ -11,7 +11,7 @@ export const Service = () => {
     const CUSTOM_CATEGORY_ID = "3fa85f64-5717-4562-b3fc-2c963f66afa6";
 
     const [formData, setFormData] = useState({
-        fullName: '',
+        fullname: '',
         phoneNumber: '',
         linkFacebook: '',
         linkShareNike: '',
@@ -41,7 +41,7 @@ export const Service = () => {
             if (response.success) {
                 alert("Gửi yêu cầu thành công!");
                 setFormData({
-                    fullName: '',
+                    fullname: '',
                     phoneNumber: '',
                     linkFacebook: '',
                     linkShareNike: '',
@@ -126,7 +126,7 @@ export const Service = () => {
                     <div className="booking-form">
                         <h3>Nhận Tư Vấn</h3>
                         <form onSubmit={handleSubmit}>
-                            <input type="text" name="fullName" placeholder="Họ và Tên" value={formData.fullName} onChange={handleChange} required />
+                            <input type="text" name="fullname" placeholder="Họ và Tên" value={formData.fullname} onChange={handleChange} required />
                             <input type="tel" name="phoneNumber" placeholder="Số điện thoại" value={formData.phoneNumber} onChange={handleChange} required />
                             <input type="text" name="linkFacebook" placeholder="Link Facebook (tuỳ chọn)" value={formData.linkFacebook} onChange={handleChange} />
                             <input type="text" name="linkShareNike" placeholder="Link share mẫu Nike (tuỳ chọn)" value={formData.linkShareNike} onChange={handleChange} />
