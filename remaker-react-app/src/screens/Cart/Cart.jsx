@@ -6,26 +6,26 @@ import {
   saveCartToStorage,
   clearCart
 } from '../../utils/cartUtils';
+
 export const Cart = () => {
   const [cartItems, setCartItems] = useState(getCartFromStorage());
   const navigate = useNavigate();
 
   // Lấy user từ localStorage hoặc tạo mặc định
-  const [userInfo, setUserInfo] = useState(() => {
-    const savedUser = JSON.parse(localStorage.getItem('userInfo'));
-    return {
-      userID: savedUser?.userID || '',
-      fullName: savedUser?.fullName || '',
-      address: savedUser?.address || '',
-      phoneNumber: savedUser?.phoneNumber || '',
-    };
+  const [userInfo, setUserInfo] = useState({
+    fullname: '',
+    address: '',
+    phoneNumber: '',
+    email: '', // Thêm trường email
+    userID: null // Đặt userID mặc định là null
   });
 
   const [paymentMethod, setPaymentMethod] = useState('cod');
 
   useEffect(() => {
     saveCartToStorage(cartItems);
-  }, [cartItems]);
+    localStorage.setItem('userInfo', JSON.stringify(userInfo)); // Lưu thông tin người dùng vào localStorage
+  }, [cartItems, userInfo]); // Cập nhật khi userInfo thay đổi
 
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
@@ -49,34 +49,50 @@ export const Cart = () => {
     setCartItems(prevItems => prevItems.filter(item => item.productId !== id));
   };
 
-  const handleCheckout = () => {
-    if (cartItems.length === 0) {
-      alert('Giỏ hàng của bạn đang trống!');
+  const handleCheckout = async () => {
+    const amount = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  
+    if (!userInfo.fullname || !userInfo.phoneNumber || !userInfo.address || !userInfo.email) {
+      alert("Vui lòng nhập đầy đủ họ tên, số điện thoại, địa chỉ và email trước khi thanh toán.");
       return;
     }
+  
+    const paymentPayload = {
+      amount: amount,
+      orderId: "string",
+      description: `${userInfo.email}-${userInfo.phoneNumber}`.slice(0, 25),
+      cancelUrl: "string",
+      returnUrl: "string"
+    };
 
-    if (!userInfo.fullName || !userInfo.address || !userInfo.phoneNumber) {
-      alert('Vui lòng nhập đầy đủ thông tin giao hàng!');
-      return;
-    }
-
-    const orderId = 'ORDER-' + Date.now();
-    setCartItems([]);
-    clearCart();
-
-    // Lưu lại userInfo cho các lần sau
-    localStorage.setItem("userInfo", JSON.stringify(userInfo));
-
-    navigate('/payment-success', {
-      state: {
-        orderId,
-        userInfo,
-        paymentMethod,
-        cartItems,
-        totalPrice
+    // Lưu thông tin thanh toán vào localStorage trước khi gửi yêu cầu
+    localStorage.setItem('paymentInfo', JSON.stringify(paymentPayload));
+  
+    try {
+      const response = await fetch("http://157.66.27.96:8080/api/payments/create-payment-link", {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(paymentPayload)
+      });
+  
+      if (!response.ok) {
+        throw new Error("Có lỗi 500 không thể tạo link thanh toán");
       }
-    });
+  
+      const result = await response.json();
+  
+      if (result?.paymentUrl) {
+        window.location.href = result.paymentUrl; // ✅ Mở link thanh toán
+      } else {
+        alert("Không thể tạo link thanh toán.");
+      }
+    } catch (err) {
+      console.error("❌ Lỗi tạo payment link:", err);
+      alert(err.message); // Hiển thị thông báo lỗi cụ thể
+    }
   };
+  
+  
 
   return (
     <div className="cart-container">
@@ -88,9 +104,9 @@ export const Cart = () => {
         <label>Họ và tên:</label>
         <input
           type="text"
-          value={userInfo.fullName}
-          readOnly={!!userInfo.userID}
-          onChange={(e) => setUserInfo({ ...userInfo, fullName: e.target.value })}
+          value={userInfo.fullname}
+          onChange={(e) => setUserInfo({ ...userInfo, fullname: e.target.value })}
+          required
         />
 
         <label>Địa chỉ:</label>
@@ -98,13 +114,23 @@ export const Cart = () => {
           type="text"
           value={userInfo.address}
           onChange={(e) => setUserInfo({ ...userInfo, address: e.target.value })}
+          required
         />
 
         <label>Số điện thoại:</label>
         <input
-          type="text"
+          type="tel"
           value={userInfo.phoneNumber}
           onChange={(e) => setUserInfo({ ...userInfo, phoneNumber: e.target.value })}
+          required
+        />
+
+        <label>Email:</label>
+        <input
+          type="email"
+          value={userInfo.email}
+          onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })}
+          required
         />
 
         <label>Hình thức thanh toán:</label>

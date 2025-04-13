@@ -11,7 +11,7 @@ import { Cart } from './screens/Cart/Cart'; // Added Cart import
 import { TestApiButton } from './screens/TestApiButton';
 import { ProductDetail } from "./screens/Product/ProductDetail";
 import PaymentSuccess from "./screens/Cart/PaymentSuccess";
-import { AdminPage } from './screens/Admin/AdminPage';
+import { OrderHistory }  from './screens/Cart/OrderHistory';
 
 export const AppRoutes = () => {
   return (
@@ -28,7 +28,7 @@ export const AppRoutes = () => {
       <Route path="/TestApiButton" element={<TestApiButton />} />
       <Route path="/product/:id" element={<ProductDetail />} /> 
       <Route path="/payment-success" element={<PaymentSuccess />} />
-      <Route path="/admin" element={<AdminPage />} />
+      <Route path="/order-history" element={<OrderHistory />} />
     </Routes>
   );
 };

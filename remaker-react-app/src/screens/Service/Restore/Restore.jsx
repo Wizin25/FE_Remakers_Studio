@@ -9,7 +9,7 @@ export const Restore = () => {
   const RESTORE_CATEGORY_ID = "e549c2fb-b379-42c9-9ccc-27edde838327";
 
   const [formData, setFormData] = useState({
-    fullName: '',
+    fullname: '',
     phoneNumber: '',
     linkFacebook: '',
     linkShareNike: '',
@@ -39,7 +39,7 @@ export const Restore = () => {
       if (response.success) {
         alert("Gửi yêu cầu thành công!");
         setFormData({
-          fullName: '',
+          fullname: '',
           phoneNumber: '',
           linkFacebook: '',
           linkShareNike: '',
@@ -114,9 +114,9 @@ export const Restore = () => {
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
-                name="fullName"
+                name="fullname"
                 placeholder="Họ và Tên"
-                value={formData.fullName}
+                value={formData.fullname}
                 onChange={handleChange}
                 required
               />

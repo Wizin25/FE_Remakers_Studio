@@ -10,7 +10,7 @@ export const Clean = () => {
   const CLEAN_CATEGORY_ID = "f28201eb-2d86-4b27-8960-753d518496e2";
 
   const [formData, setFormData] = useState({
-    fullName: '',
+    fullname: '',
     phoneNumber: '',
     linkFacebook: '',
     linkShareNike: '',
@@ -41,7 +41,7 @@ export const Clean = () => {
       if (response.success) {
         alert("Gửi yêu cầu thành công!");
         setFormData({
-          fullName: '',
+          fullname: '',
           phoneNumber: '',
           linkFacebook: '',
           linkShareNike: '',
@@ -121,9 +121,9 @@ export const Clean = () => {
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
-                name="fullName"
+                name="fullname"
                 placeholder="Họ và Tên"
-                value={formData.fullName}
+                value={formData.fullname}
                 onChange={handleChange}
                 required
               />

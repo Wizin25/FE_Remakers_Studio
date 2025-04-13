@@ -36,6 +36,7 @@ export const Profile = () => {
             ...prev, 
             ...response.data
           }));
+          localStorage.setItem('userId', response.data.userId); // Save userId to localStorage
         } else {
           console.error("Không thể lấy thông tin người dùng:", response.errors || "Dữ liệu không hợp lệ");
         }
