@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
-import MapComponent from './MapComponent';
-import OpenStreetMap from "./OpenStreetMap";
+
 export const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
@@ -129,7 +128,15 @@ export const Home = () => {
             <h2>Bản Đồ Địa Điểm</h2>
           </div>
           <div className="map-container">
-            <OpenStreetMap />
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d462.33298602469745!2d106.83776128517091!3d10.841976894766278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317521006ef2f155%3A0x3af040f9e0388d32!2sFamilyMart%20S601!5e0!3m2!1svi!2s!4v1744575774268!5m2!1svi!2s" 
+              width="1280" 
+              height="500" 
+              style={{ border: 0 }} 
+              allowFullScreen 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </section>
 
