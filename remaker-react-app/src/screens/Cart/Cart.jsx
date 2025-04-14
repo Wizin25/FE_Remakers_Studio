@@ -12,12 +12,15 @@ export const Cart = () => {
   const navigate = useNavigate();
 
   // Lấy user từ localStorage hoặc tạo mặc định
-  const [userInfo, setUserInfo] = useState({
-    fullname: '',
-    address: '',
-    phoneNumber: '',
-    email: '', // Thêm trường email
-    userID: null // Đặt userID mặc định là null
+  const [userInfo, setUserInfo] = useState(() => {
+    const savedUserInfo = localStorage.getItem('userInfo');
+    return savedUserInfo ? JSON.parse(savedUserInfo) : {
+      fullname: '',
+      address: '',
+      phoneNumber: '',
+      email: '', // Thêm trường email
+      userID: null // Đặt userID mặc định là null
+    };
   });
 
   const [paymentMethod, setPaymentMethod] = useState('cod');
@@ -59,10 +62,10 @@ export const Cart = () => {
   
     const paymentPayload = {
       amount: amount,
-      orderId: "string",
+      orderId: `Order_${Date.now()}`, // Tạo orderId tự động bằng timestamp
       description: `${userInfo.email}-${userInfo.phoneNumber}`.slice(0, 25),
-      cancelUrl: "string",
-      returnUrl: "string"
+      cancelUrl: "http://remakers-studio.shop/payment-cancel",
+      returnUrl: "http://remakers-studio.shop/payment-success"
     };
 
     // Lưu thông tin thanh toán vào localStorage trước khi gửi yêu cầu
@@ -138,7 +141,7 @@ export const Cart = () => {
           value={paymentMethod}
           onChange={(e) => setPaymentMethod(e.target.value)}
         >
-          <option value="cod">Ship COD</option>
+          
           <option value="bank">Chuyển khoản - QR code</option>
         </select>
       </div>

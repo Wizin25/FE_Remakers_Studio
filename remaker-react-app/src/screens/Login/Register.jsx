@@ -6,7 +6,9 @@ import './Login.css'; // Sử dụng CSS của trang đăng nhập
 export const Register = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        fullname: '',
+        fullName: '',
+        address: '',
+        phoneNumber: '',
         email: '',
         username: '',
         password: '',
@@ -31,14 +33,28 @@ export const Register = () => {
         }
 
         // Kiểm tra họ và tên
-        if (!formData.fullname) {
+        if (!formData.fullName) {
             setError("Họ và tên không được để trống!");
+            return;
+        }
+
+        // Kiểm tra địa chỉ
+        if (!formData.address) {
+            setError("Địa chỉ không được để trống!");
+            return;
+        }
+
+        // Kiểm tra số điện thoại
+        if (!formData.phoneNumber) {
+            setError("Số điện thoại không được để trống!");
             return;
         }
 
         // Chuẩn bị dữ liệu gửi lên API
         const userData = {
-            fullname: formData.fullname,
+            fullName: formData.fullName,
+            address: formData.address,
+            phoneNumber: formData.phoneNumber,
             email: formData.email,
             username: formData.username,
             password: formData.password
@@ -69,13 +85,39 @@ export const Register = () => {
 
                     <form className="login-form" onSubmit={handleSubmit}>
                         <div className="form-group">
-                            <label htmlFor="fullname">Họ và Tên</label>
+                            <label htmlFor="fullName">Họ và Tên</label>
                             <input 
                                 type="text"
-                                id="fullname" // Corrected id to match state
+                                id="fullName" // Updated id to match new state
                                 className="form-input"
                                 placeholder="Nhập họ và tên của bạn"
-                                value={formData.fullname}
+                                value={formData.fullName}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="address">Địa Chỉ</label>
+                            <input 
+                                type="text"
+                                id="address" // New input for address
+                                className="form-input"
+                                placeholder="Nhập địa chỉ của bạn"
+                                value={formData.address}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="phoneNumber">Số Điện Thoại</label>
+                            <input 
+                                type="tel"
+                                id="phoneNumber" // New input for phone number
+                                className="form-input"
+                                placeholder="Nhập số điện thoại của bạn"
+                                value={formData.phoneNumber}
                                 onChange={handleChange}
                                 required
                             />
