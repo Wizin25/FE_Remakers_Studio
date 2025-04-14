@@ -13,7 +13,6 @@ export const Profile = () => {
     address: '',
     username: '',
     roleName: ''
-    // Removed birthdate from initial state
   });
 
   const enableEdit = () => setIsEditing(true);
@@ -32,9 +31,15 @@ export const Profile = () => {
         const response = await getUserInfo();
         console.log("API Response:", response); // Log the entire response
         if (response.success && response.data) {
+          // Ensure fullname is correctly set from response
           setUserInfo(prev => ({
             ...prev, 
-            ...response.data
+            fullname: response.data.fullname || '', // Ensure fullname is fetched correctly
+            email: response.data.email || '',
+            phoneNumber: response.data.phoneNumber || '',
+            address: response.data.address || '',
+            username: response.data.username || '',
+            roleName: response.data.roleName || ''
           }));
           localStorage.setItem('userId', response.data.userId); // Save userId to localStorage
         } else {
@@ -75,7 +80,6 @@ export const Profile = () => {
           <label htmlFor="email">Email:</label>
           <input type="email" id="email" name="email" value={userInfo.email} onChange={handleChange} disabled={!isEditing} />
         </div>
-        {/* Removed birthdate input */}
         <div>
           <label htmlFor="phoneNumber">Số Điện Thoại:</label>
           <input type="tel" id="phoneNumber" name="phoneNumber" value={userInfo.phoneNumber} onChange={handleChange} disabled={!isEditing} />
