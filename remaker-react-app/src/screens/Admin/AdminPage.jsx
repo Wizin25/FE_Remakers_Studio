@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getUserInfo } from '../../services/api'; // Đảm bảo bạn đã có hàm này
+import ProductManagement from './ProductManagement';
+import ServiceCategoryManagement from './ServiceCategoryManagement';
 
 const adminMenu = [
   { label: 'Yêu cầu dịch vụ', path: '/admin/requests' },
@@ -15,6 +17,7 @@ const adminMenu = [
 export const AdminPage = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
+  const [tab, setTab] = useState('products');
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -60,7 +63,15 @@ export const AdminPage = () => {
       <p>Xin chào, <strong>{user.fullname}</strong>!</p>
       <p>Bạn đang truy cập trang quản lý.</p>
 
-      {/* Có thể thêm quản lý danh sách yêu cầu tại đây */}
+      {/* Tabs */}
+      <div style={{ display: 'flex', gap: 20, marginTop: 30, marginBottom: 20 }}>
+        <button onClick={() => setTab('products')}>Quản lý sản phẩm</button>
+        <button onClick={() => setTab('services')}>Quản lý dịch vụ</button>
+      </div>
+
+      {/* Render nội dung theo tab */}
+      {tab === 'products' && <ProductManagement />}
+      {tab === 'services' && <ServiceCategoryManagement />}
     </div>
   );
 };
