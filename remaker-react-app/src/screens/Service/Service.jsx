@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './Service.css';
 import { submitServiceRequest } from '../../services/api';
-import ChatBox from '../../components/chatboxAI/Chatbox';
 
 export const Service = () => {
     const navigate = useNavigate();
