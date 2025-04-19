@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './Service.css';
-import { TestApiButton } from '../TestApiButton';
 import { submitServiceRequest } from '../../services/api';
+import ChatBox from '../../components/chatboxAI/Chatbox';
 
 export const Service = () => {
     const navigate = useNavigate();
@@ -57,12 +57,12 @@ export const Service = () => {
     };
 
     const slides = [
-        { src: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/fa1bceaf-21bc-44b5-853b-33eac3c34e2b/WMNS+NIKE+P-6000.png", alt: "Nike P-6000", name: "Nike P-6000" },
-        { src: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/7dcc6fd4-b41c-493e-85bd-58b8944b6b1d/W+BLAZER+MID+%2777.png", alt: "Nike Blazer Mid '77", name: "Nike Blazer Mid '77" },
-        { src: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/705e7806-a5f4-415c-99de-b01e6fda9b4c/AIR+FORCE+1+%2707.png", alt: "Nike Air Force 1", name: "Nike Air Force 1" },
-        { src: "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/b535f796-2dcb-4482-9017-16f151c8782e/custom-huarache-run-by-you.png", alt: "Nike Hurache Run", name: "Nike Hurache Run" },
-        { src: "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/fa167834-731f-47d5-bdc3-8578415c02df/custom-nike-air-max-97-shoes-by-you.png", alt: "Nike Air Max 97", name: "Nike Air Max 97" },
-        { src: "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/3b58d490-7e40-4768-b023-ac7c6dbc081e/custom-dunk-low-unlocked-by-you.png", alt: "Nike Dunk Low", name: "Nike Dunk Low" },
+        { src: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/fa1bceaf-21bc-44b5-853b-33eac3c34e2b/WMNS+NIKE+P-6000.png", alt: "Nike P-6000", name: "Nike P-6000", link: "https://www.nike.com/vn/u/custom-nike-p-6000-by-you-10001968/5278266845" },
+        { src: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/7dcc6fd4-b41c-493e-85bd-58b8944b6b1d/W+BLAZER+MID+%2777.png", alt: "Nike Blazer Mid '77", name: "Nike Blazer Mid '77", link: "https://www.nike.com/vn/u/custom-nike-blazer-mid-77-shoes-by-you-10001870/7423563261" },
+        { src: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/705e7806-a5f4-415c-99de-b01e6fda9b4c/AIR+FORCE+1+%2707.png", alt: "Nike Air Force 1", name: "Nike Air Force 1", link: "#" },
+        { src: "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/b535f796-2dcb-4482-9017-16f151c8782e/custom-huarache-run-by-you.png", alt: "Nike Hurache Run", name: "Nike Hurache Run", link: "https://www.nike.com/vn/u/custom-huarache-run-by-you-10001375/4162835404" },
+        { src: "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/fa167834-731f-47d5-bdc3-8578415c02df/custom-nike-air-max-97-shoes-by-you.png", alt: "Nike Air Max 97", name: "Nike Air Max 97", link: "https://www.nike.com/vn/u/custom-nike-air-max-97-shoes-by-you-10001609/1585533760" },
+        { src: "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/3b58d490-7e40-4768-b023-ac7c6dbc081e/custom-dunk-low-unlocked-by-you.png", alt: "Nike Dunk Low", name: "Nike Dunk Low", link: "https://www.nike.com/vn/u/custom-dunk-low-unlocked-by-you-10001544/1703754281" },
     ];
 
     return (
@@ -73,8 +73,18 @@ export const Service = () => {
                     <div className={`nav-item ${location.pathname === '/restore' ? 'active' : ''}`} onClick={() => navigate('/restore')}>Phục hồi</div>
                     <div className={`nav-item ${location.pathname === '/clean' ? 'active' : ''}`} onClick={() => navigate('/clean')}>Vệ sinh</div>
                 </div>
-                
+                <div className="instruction">
+                        <h3>🧵 Bạn có thể tự thiết kế đôi giày của mình tại Nike:</h3>
+                        <ol>
+                            <li>- Bước 1: Vào <a href="https://www.nike.com/vn/w?q=custom%20by%20you&vst=custom%20by%20you" target="_blank" rel="noopener noreferrer">Tại đây</a> hoặc bấm các mẫu phía dưới.</li>
+                            <li>- Bước 2: Chọn mẫu bạn muốn tùy chỉnh.</li>
+                            <li>- Bước 3: Nhấn nút "Tùy chỉnh" để vào giao diện thiết kế.</li>
+                            <li>- Bước 4: Khi giao diện thiết kế mở ra → sao chép link trên thanh địa chỉ.</li>
+                            <li>- Bước 5: Dán link đó vào ô bên dưới để tiếp tục đặt dịch vụ!</li>
+                        </ol>
+                    </div>
                 <div className="service-content1">
+                    
                     <div className="grid-container" style={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(3, 1fr)',
@@ -83,9 +93,10 @@ export const Service = () => {
                     }}>
                         {slides.map((slide, idx) => (
                             <div className="grid-item" key={idx} style={{ textAlign: 'center' }}>
-                                <img src={slide.src} alt={slide.alt} style={{ width: '100%', borderRadius: '8px', transition: 'transform 0.3s ease' }} />
-                                <p style={{ marginTop: '10px' }}><b>{slide.name}</b></p>
-                               
+                                <a href={slide.link} target="_blank" rel="noopener noreferrer">
+                                    <img src={slide.src} alt={slide.alt} style={{ width: '100%', borderRadius: '8px', transition: 'transform 0.3s ease' }} />
+                                    <p style={{ marginTop: '10px' }}><b>{slide.name}</b></p>
+                                </a>
                             </div>
                         ))}
                     </div>
@@ -136,7 +147,6 @@ export const Service = () => {
                     </div>
                 </div>
             </div>
-            <TestApiButton />
         </div>
     );
 };

@@ -42,6 +42,7 @@ export const Profile = () => {
             roleName: response.data.roleName || ''
           }));
           localStorage.setItem('userId', response.data.userId); // Save userId to localStorage
+          localStorage.setItem('userInfo', JSON.stringify(response.data)); // Save user info to localStorage
         } else {
           console.error("Không thể lấy thông tin người dùng:", response.errors || "Dữ liệu không hợp lệ");
         }

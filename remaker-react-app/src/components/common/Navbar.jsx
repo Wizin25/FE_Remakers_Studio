@@ -20,8 +20,7 @@ export const Navbar = () => {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('username');
+    localStorage.clear(); // Xóa hết local storage
     setUsername(null); // Cập nhật state trước
 
     // 🔥 Báo hiệu cho React cập nhật ngay lập tức
@@ -31,7 +30,7 @@ export const Navbar = () => {
     setTimeout(() => {
         navigate('/Login');
     }, 100);
-};
+  };
 
   console.log('Current username:', username);
 

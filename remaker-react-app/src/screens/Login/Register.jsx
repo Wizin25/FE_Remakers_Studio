@@ -188,8 +188,9 @@ export const Register = () => {
 
                 <div className="login-image">
                     <img 
-                        src="https://res.cloudinary.com/dzht29nkq/image/upload/v1741624468/login-shoe_yftbc6.png" 
-                        alt="Login"
+                       // src="https://res.cloudinary.com/dzht29nkq/image/upload/v1741624468/login-shoe_yftbc6.png" 
+                       src="https://i.pinimg.com/474x/d4/63/f9/d463f9357257540a60a370223b000a40.jpg" 
+                       alt="Login"
                         className="side-image"
                     />
                 </div>

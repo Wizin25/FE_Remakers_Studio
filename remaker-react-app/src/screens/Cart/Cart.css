@@ -21,9 +21,18 @@
 }
 
 .cart-header-item {
-    flex: 1; /* Chiếm đều không gian */
-    text-align: center; /* Căn giữa nội dung */
+    flex: 3; /* Chiếm 2 phần không gian cho hình ảnh/tên sản phẩm/đơn giá */
+    text-align: start; /* Căn giữa nội dung */
 }
+.cart-header-item1 {
+    flex: 4.5; /* Chiếm 2 phần không gian cho hình ảnh/tên sản phẩm/đơn giá */
+    text-align: right; /* Căn giữa nội dung */
+}
+.cart-header-item2 {
+    flex: 1; /* Chiếm 2 phần không gian cho hình ảnh/tên sản phẩm/đơn giá */
+    text-align: right; /* Căn giữa nội dung */
+}
+
 
 .cart-items {
     display: flex; /* Sử dụng flexbox */
@@ -74,13 +83,14 @@
     display: flex; /* Sử dụng flexbox */
     align-items: center; /* Căn giữa theo chiều dọc */
     flex: 1; /* Chiếm 1 phần không gian */
+    margin-left: 110px;
 }
 
 .cart-item-quantity button {
     padding: 5px 10px; /* Khoảng cách bên trong */
     margin: 0 5px; /* Khoảng cách giữa các nút */
     border: none; /* Không có đường viền */
-    background-color: #4a90e2; /* Màu nền nút */
+    background-color: #e24a4a; /* Màu nền nút */
     color: white; /* Màu chữ nút */
     border-radius: 5px; /* Bo góc */
     cursor: pointer; /* Con trỏ chuột khi hover */
@@ -91,6 +101,7 @@
     text-align: center; /* Căn giữa nội dung */
     font-size: 1.2em; /* Kích thước chữ */
     color: #4a90e2; /* Màu chữ */
+    margin-right: 115px;
 }
 
 .remove-button {
@@ -114,7 +125,7 @@
 
 .cart-summary-total {
     font-size: 1.5em; /* Kích thước chữ */
-    color: #4a90e2; /* Màu chữ */
+    color: #4ce24a; /* Màu chữ */
     margin: 10px 0; /* Khoảng cách trên và dưới */
 }
 
@@ -130,37 +141,62 @@
 }
 
 .checkout-button:hover {
-    background-color: #357abd; /* Đổi màu nền khi hover */
+    background-color: #35bd89; /* Đổi màu nền khi hover */
 }
 
 .customer-info {
-    margin-bottom: 13.33px; /* Khoảng cách dưới cho thông tin giao hàng */
-    padding: 13.33px; /* Khoảng cách bên trong */
-    background-color: #f9f9f9; /* Màu nền cho thông tin giao hàng */
-    border: 1px solid #ddd; /* Đường viền xung quanh */
-    border-radius: 5.33px; /* Bo góc */
+    margin-bottom: 10px; /* Khoảng cách dưới cho thông tin giao hàng */
+    padding: 10px; /* Khoảng cách bên trong */
+    background-color: #ffffff; /* Màu nền cho thông tin giao hàng (nghiêng màu trắng) */
+    border: 1px solid #e0e0e0; /* Đường viền xung quanh (nghiêng màu trắng) */
+    border-radius: 5px; /* Bo góc */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển tiếp mượt mà */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ cho chiều sâu */
+}
+
+.customer-info:hover {
+    transform: scale(1.005); /* Phóng to nhẹ khi hover */
 }
 
 .customer-info label {
     display: block; /* Hiển thị label dưới dạng khối */
-    margin-bottom: 3.33px; /* Khoảng cách dưới cho label */
+    margin-bottom: 1.5px; /* Khoảng cách dưới cho label */
     font-weight: bold; /* Chữ đậm cho label */
+    color: #333; /* Màu chữ cho label */
+    transition: color 0.3s ease; /* Hiệu ứng chuyển tiếp màu chữ */
+    size: 15px;
+}
+
+.customer-info label:hover {
+    color: #00cc96; /* Đổi màu chữ khi hover */
 }
 
 .customer-info input {
     width: 100%; /* Chiếm toàn bộ chiều rộng */
-    padding: 6.67px; /* Khoảng cách bên trong */
-    margin-bottom: 10px; /* Khoảng cách dưới cho input */
+    padding: 3.5px; /* Khoảng cách bên trong */
+    margin-bottom: 5px; /* Khoảng cách dưới cho input */
     border: 1px solid #ccc; /* Đường viền cho input */
-    border-radius: 3.33px; /* Bo góc */
-    font-size: 0.67em; /* Kích thước chữ */
+    border-radius: 2.5px; /* Bo góc */
+    font-size: 1em; /* Kích thước chữ */
+    transition: border-color 0.3s ease; /* Hiệu ứng chuyển tiếp màu viền */
+}
+
+.customer-info input:focus {
+    border-color: #007acc; /* Đổi màu viền khi focus */
+    outline: none; /* Bỏ outline mặc định */
 }
 
 .customer-info select {
     width: 100%; /* Chiếm toàn bộ chiều rộng */
-    padding: 6.67px; /* Khoảng cách bên trong */
-    margin-bottom: 10px; /* Khoảng cách dưới cho select */
+    padding: 3.5px; /* Khoảng cách bên trong */
+    margin-bottom: 5px; /* Khoảng cách dưới cho select */
     border: 1px solid #ccc; /* Đường viền cho select */
-    border-radius: 3.33px; /* Bo góc */
-    font-size: 0.67em; /* Kích thước chữ */
+    border-radius: 2.5px; /* Bo góc */
+    font-size: 1em; /* Kích thước chữ */
+    transition: border-color 0.3s ease; /* Hiệu ứng chuyển tiếp màu viền */
+}
+
+.customer-info select:focus {
+    border-color: #007acc; /* Đổi màu viền khi focus */
+    outline: none; /* Bỏ outline mặc định */
 }

@@ -1,0 +1,114 @@
+.chatbox-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    height: 450px;
+    z-index: 9999;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: block;
+    transition: all 0.3s ease;
+  }
+  
+
+.chatbox-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #00bfae;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+.chatbox-button:hover {
+    background-color: #008e7e;
+}
+
+.close-btn {
+    background-color: transparent;
+    border: none;
+    color: #f00;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.chatbox {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.chatbox-header {
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.chatbox-messages {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    padding-right: 10px;
+}
+
+.chatbox-input {
+    display: flex;
+    justify-content: space-between;
+}
+
+.chatbox-input input {
+    width: 80%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.chatbox-input button {
+    width: 15%;
+    padding: 8px;
+    background-color: #00bfae;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chatbox-input button:hover {
+    background-color: #008e7e;
+}
+
+.user-message {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    max-width: 80%;
+    align-self: flex-start;
+}
+
+.bot-message {
+    background-color: #00bfae;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    max-width: 80%;
+    align-self: flex-end;
+}
+
+.bot-message img {
+    width: 100%;
+    border-radius: 8px;
+}
