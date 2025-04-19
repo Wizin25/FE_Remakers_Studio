@@ -58,10 +58,29 @@ export const AdminPage = () => {
   if (!user) return null;
 
   return (
-    <div style={{ padding: 40, margin: '40px auto', marginTop: 10}}>
-      <h1>👑 Quản Trị Viên</h1>
-      <p>Xin chào, <strong>{user.fullname}</strong>!</p>
-      <p>Bạn đang truy cập trang quản lý.</p>
+    <div style={{ padding: 40, margin: '40px auto', marginTop: 10, background: 'linear-gradient(to right, #f8f9fa, #e9ecef)', borderRadius: '15px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 20, padding: '20px 0' }}>
+        <img 
+          src="https://res.cloudinary.com/dzht29nkq/image/upload/v1741624468/logo_uthnzf.png?fbclid=IwY2xjawJFMD1leHRuA2FlbQIxMAABHTlBXJS3eAMzhqPkDptWl_r8r7uB9DQBP3_w0gBw8DrWLZ3p55PHZ0cDng_aem_IvKPqHc0ojp7wNf-Adhyrg" 
+          alt="Remakers Studio" 
+          style={{ 
+            width: 120, 
+            height: 120,
+            borderRadius: '50%',
+            border: '3px solid #007bff',
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+            transition: 'transform 0.3s ease',
+            ':hover': {
+              transform: 'scale(1.05)'
+            }
+          }}
+        />
+        <div>
+          <h1 style={{ fontSize: '2.5rem', color: '#343a40', margin: 0 }}>👑 Quản Trị Viên</h1>
+          <p style={{ fontSize: '1.2rem', color: '#6c757d', margin: '10px 0 0 0' }}>Xin chào, <strong style={{ color: '#007bff' }}>{user.fullname}</strong>!</p>
+          <p style={{ fontSize: '1.1rem', color: '#6c757d', margin: '5px 0 0 0' }}>Bạn đang truy cập trang quản lý.</p>
+        </div>
+      </div>
 
       {/* Tabs */}
       <div style={{ display: 'flex', gap: 20, marginTop: 30, marginBottom: 20 }}>
