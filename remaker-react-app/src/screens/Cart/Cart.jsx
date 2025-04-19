@@ -10,17 +10,34 @@ import {
 export const Cart = () => {
   const [cartItems, setCartItems] = useState(getCartFromStorage());
   const navigate = useNavigate();
-
-  // Lấy user từ localStorage hoặc tạo mặc định
   const [userInfo, setUserInfo] = useState(() => {
-    const savedUserInfo = localStorage.getItem('userInfo');
-    return savedUserInfo ? JSON.parse(savedUserInfo) : {
-      fullname: '',
-      address: '',
-      phoneNumber: '',
-      email: '', // Thêm trường email
-      userID: null // Đặt userID mặc định là null
-    };
+    const token = localStorage.getItem('token'); // Kiểm tra xem người dùng đã đăng nhập chưa
+    if (token) {
+      // Nếu đã đăng nhập, lấy thông tin người dùng từ localStorage
+      const storedUserInfo = JSON.parse(localStorage.getItem('userInfo'));
+      return storedUserInfo ? {
+        fullname: storedUserInfo.fullname || '',
+        address: storedUserInfo.address || '',
+        phoneNumber: storedUserInfo.phoneNumber || '',
+        email: storedUserInfo.email || '',
+        userID: storedUserInfo.userID || null
+      } : {
+        fullname: '',
+        address: '',
+        phoneNumber: '',
+        email: '',
+        userID: null
+      };
+    } else {
+      // Nếu chưa đăng nhập, tạo thông tin người dùng mặc định
+      return {
+        fullname: '',
+        address: '',
+        phoneNumber: '',
+        email: '',
+        userID: null
+      };
+    }
   });
 
   const [paymentMethod, setPaymentMethod] = useState('cod');
@@ -34,9 +51,16 @@ export const Cart = () => {
 
   const handleIncrease = (id) => {
     setCartItems(prevItems =>
-      prevItems.map(item =>
-        item.productId === id ? { ...item, quantity: item.quantity + 1 } : item
-      )
+      prevItems.map(item => {
+        if (item.productId === id) {
+          if (item.quantity >= 10) {
+            alert("Mỗi khách hàng chỉ có thể mua tối đa 10 đơn vị cho mỗi sản phẩm");
+            return item; // Không thay đổi số lượng nếu đã đủ 10
+          }
+          return { ...item, quantity: item.quantity + 1 };
+        }
+        return item;
+      })
     );
   };
 
@@ -102,9 +126,9 @@ export const Cart = () => {
       <h1 className="cart-title">Giỏ Hàng Của Bạn</h1>
 
       <div className="customer-info">
-        <h2 style={{ fontSize: '1em', textAlign: 'center', marginBottom: '20px' }}>Thông Tin Giao Hàng</h2>
+        <h2 style={{ fontSize: '1.5em', textAlign: 'center', marginBottom: '20px' }}>Thông Tin Giao Hàng</h2>
 
-        <label>Họ và tên:</label>
+        <label style={{ fontSize: '0.8em' }}>Họ và tên:</label>
         <input
           type="text"
           value={userInfo.fullname}
@@ -112,7 +136,7 @@ export const Cart = () => {
           required
         />
 
-        <label>Địa chỉ:</label>
+        <label style={{ fontSize: '0.8em' }}>Địa chỉ:</label>
         <input
           type="text"
           value={userInfo.address}
@@ -120,7 +144,7 @@ export const Cart = () => {
           required
         />
 
-        <label>Số điện thoại:</label>
+        <label style={{ fontSize: '0.8em' }}>Số điện thoại:</label>
         <input
           type="tel"
           value={userInfo.phoneNumber}
@@ -128,7 +152,7 @@ export const Cart = () => {
           required
         />
 
-        <label>Email:</label>
+        <label style={{ fontSize: '0.8em' }}>Email:</label>
         <input
           type="email"
           value={userInfo.email}
@@ -136,7 +160,7 @@ export const Cart = () => {
           required
         />
 
-        <label>Hình thức thanh toán:</label>
+        <label style={{ fontSize: '0.8em' }}>Hình thức thanh toán:</label>
         <select
           value={paymentMethod}
           onChange={(e) => setPaymentMethod(e.target.value)}
@@ -150,9 +174,9 @@ export const Cart = () => {
         <div className="cart-header-item">Hình ảnh</div>
         <div className="cart-header-item">Tên sản phẩm</div>
         <div className="cart-header-item">Đơn giá</div>
-        <div className="cart-header-item">Số lượng</div>
-        <div className="cart-header-item">Thành tiền</div>
-        <div className="cart-header-item">Hành động</div>
+        <div className="cart-header-item1">Số lượng</div>
+        <div className="cart-header-item1">Thành tiền</div>
+        <div className="cart-header-item1">Hành động</div>
       </div>
 
       <div className="cart-items">

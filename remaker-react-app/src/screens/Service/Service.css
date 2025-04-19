@@ -5,6 +5,49 @@
     width: 100%;
     font-family: 'Montserrat', sans-serif;
 }
+.instruction {
+    background: linear-gradient(135deg, #e0f2e9, #c8e6c9); /* Luxurious gradient leaning towards light green */
+    border: 2px solid #a5d6a7; /* Soft green color for the border */
+    border-radius: 12px;
+    padding: 30px;
+    margin: 30px 0;
+    font-size: 20px; /* Enhanced font size for better readability */
+    line-height: 1.8; /* Increased line height for improved spacing */
+    width: 100%; /* Ensures the instruction section takes full width */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
+}
+
+.instruction:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.instruction h3 {
+    font-size: 28px; /* Further increased heading size for more prominence */
+    margin-bottom: 25px; /* Increased margin for better spacing */
+    color: #4a7c4a; /* Elegant green color for the heading */
+    text-align: center; /* Centered heading */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow for greater depth */
+    font-weight: bold; /* Ensured the heading is bold */
+    letter-spacing: 1px; /* Added letter spacing for improved readability */
+}
+
+.instruction ol {
+    padding-left: 30px; /* Increased padding for better alignment */
+}
+
+.instruction li {
+    margin-bottom: 15px;
+    color: #3e5b3e; /* Softer green color for better contrast */
+    font-weight: 600; /* Bolder font weight */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition effects */
+}
+
+.instruction li:hover {
+    color: #66bb6a; /* Change to a lighter green on hover */
+    transform: translateX(5px); /* Slightly shift to the right on hover */
+}
 
 .navbar2 {
     display: flex;

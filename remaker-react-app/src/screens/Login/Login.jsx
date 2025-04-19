@@ -46,12 +46,12 @@ export const Login = () => {
             // 🔥 Báo hiệu cho Navbar cập nhật ngay lập tức
             window.dispatchEvent(new Event('storage'));
 
-            navigate('/');
+            navigate('/SharedLayout');
         }
     };
 
     return (
-        <div className="login-container">
+        <div className="login-container" >
             <div className="login-box">
                 <div className="login-content">
                     <h1 className="login-title">Chào Mừng Bạn Quay Lại</h1>
@@ -97,6 +97,7 @@ export const Login = () => {
                 <div className="login-image">
                     <img 
                         src="https://res.cloudinary.com/dzht29nkq/image/upload/v1741624468/login-shoe_yftbc6.png" 
+                        //src="https://i.pinimg.com/474x/d4/63/f9/d463f9357257540a60a370223b000a40.jpg"
                         alt="Login"
                         className="side-image"
                     />
