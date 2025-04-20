@@ -7,7 +7,7 @@ export const Service = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const CUSTOM_CATEGORY_ID = "3fa85f64-5717-4562-b3fc-2c963f66afa6";
+    const CUSTOM_CATEGORY_ID = "f28201eb-2d86-4b27-8960-753d51849555";
 
     const [formData, setFormData] = useState({
         fullname: '',
