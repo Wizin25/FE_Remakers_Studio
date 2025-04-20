@@ -84,8 +84,48 @@ export const AdminPage = () => {
 
       {/* Tabs */}
       <div style={{ display: 'flex', gap: 20, marginTop: 30, marginBottom: 20 }}>
-        <button onClick={() => setTab('products')}>Quản lý sản phẩm</button>
-        <button onClick={() => setTab('services')}>Quản lý dịch vụ</button>
+        <button 
+          onClick={() => setTab('products')}
+          style={{
+            padding: '12px 24px',
+            fontSize: '1.1rem',
+            fontWeight: '600',
+            color: tab === 'products' ? '#fff' : '#007bff',
+            background: tab === 'products' ? '#007bff' : '#fff',
+            border: '2px solid #007bff',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            transition: 'all 0.3s ease',
+            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+            ':hover': {
+              transform: 'translateY(-2px)',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)'
+            }
+          }}
+        >
+          📦 Quản lý sản phẩm
+        </button>
+        <button 
+          onClick={() => setTab('services')}
+          style={{
+            padding: '12px 24px',
+            fontSize: '1.1rem',
+            fontWeight: '600',
+            color: tab === 'services' ? '#fff' : '#007bff',
+            background: tab === 'services' ? '#007bff' : '#fff',
+            border: '2px solid #007bff',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            transition: 'all 0.3s ease',
+            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+            ':hover': {
+              transform: 'translateY(-2px)',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)'
+            }
+          }}
+        >
+          🛠️ Quản lý dịch vụ
+        </button>
       </div>
 
       {/* Render nội dung theo tab */}
