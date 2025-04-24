@@ -6,47 +6,65 @@
     font-family: 'Montserrat', sans-serif;
 }
 .instruction {
-    background: linear-gradient(135deg, #e0f2e9, #c8e6c9); /* Luxurious gradient leaning towards light green */
-    border: 2px solid #a5d6a7; /* Soft green color for the border */
-    border-radius: 12px;
+    background-color: #ffffff; /* Màu nền sáng */
+    border: 1px solid #ddd; /* Đường viền nhẹ */
+    border-radius: 15px; /* Bo tròn các góc */
     padding: 30px;
     margin: 30px 0;
-    font-size: 20px; /* Enhanced font size for better readability */
-    line-height: 1.8; /* Increased line height for improved spacing */
-    width: 100%; /* Ensures the instruction section takes full width */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
-}
+    font-size: 18px;
+    line-height: 1.8; /* Giãn cách dòng thoải mái */
+    width: 100%;
+    max-width: 1200px; /* Đặt chiều rộng tối đa cho không gian đẹp */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Bóng đổ mềm */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Thêm hiệu ứng cho box-shadow và transform */
+  }
 
 .instruction:hover {
-    transform: scale(1.02); /* Slightly enlarge on hover */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .instruction h3 {
-    font-size: 28px; /* Further increased heading size for more prominence */
-    margin-bottom: 25px; /* Increased margin for better spacing */
-    color: #4a7c4a; /* Elegant green color for the heading */
-    text-align: center; /* Centered heading */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow for greater depth */
-    font-weight: bold; /* Ensured the heading is bold */
-    letter-spacing: 1px; /* Added letter spacing for improved readability */
+    font-size: 26px;
+    margin-bottom: 25px;
+    color: #2c3e50;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .instruction ol {
-    padding-left: 30px; /* Increased padding for better alignment */
+    padding-left: 30px;
 }
 
 .instruction li {
     margin-bottom: 15px;
-    color: #3e5b3e; /* Softer green color for better contrast */
-    font-weight: 600; /* Bolder font weight */
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition effects */
+    color: #34495e;
+    font-weight: 400;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    padding-left: 12px;
+}
+
+.instruction li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 5px;
+    background-color: #95a5a6;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
 }
 
 .instruction li:hover {
-    color: #66bb6a; /* Change to a lighter green on hover */
-    transform: translateX(5px); /* Slightly shift to the right on hover */
+    color: #1e272e;
+    transform: translateX(3px);
+}
+
+.instruction li:hover::before {
+    background-color: #7f8c8d;
 }
 
 .navbar2 {
@@ -214,3 +232,68 @@
         text-align: center;
     }
 }
+.sketchfab-embed-wrapper {
+    margin: 30px auto;
+    text-align: center;
+    background: linear-gradient(45deg, #2193b0, #6dd5ed, #2980b9);
+    background-size: 100% 100%;
+    animation: gradientAnimation 5s infinite alternate;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    border: 3px solid #2980b9;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  
+  .sketchfab-embed-wrapper:hover {
+    transform: scale(1.07) translateY(-12px);
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.7);
+    background-position: 50% 50%;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-position 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  
+  .sketchfab-embed-wrapper iframe {
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  
+  .sketchfab-embed-wrapper iframe:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  }
+  
+  .sketchfab-embed-wrapper p {
+    font-size: 16px;
+    color: #fff;
+    margin-top: 20px;
+    text-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
+    transition: color 0.3s ease;
+  }
+  
+  .sketchfab-embed-wrapper p a {
+    color: #a8b2ff;
+  }
+  
+  .sketchfab-embed-wrapper a {
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+  }
+  
+  .sketchfab-embed-wrapper a:hover {
+    color: #ffffff;
+    transform: scale(1.2);
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  

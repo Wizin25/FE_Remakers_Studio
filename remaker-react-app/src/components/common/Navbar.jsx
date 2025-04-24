@@ -6,6 +6,7 @@ export const Navbar = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState(localStorage.getItem('username'));
   const [isHovered, setIsHovered] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleStorageChange = () => {
@@ -14,8 +15,16 @@ export const Navbar = () => {
 
     window.addEventListener('storage', handleStorageChange);
 
+    // Detect scroll event to change navbar style
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
     return () => {
       window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -35,7 +44,7 @@ export const Navbar = () => {
   console.log('Current username:', username);
 
   return (
-    <div className="nav">
+    <div className={`nav ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
         {/* Logo */}
         <div className="nav-logo" onClick={() => { navigate('/'); window.scrollTo(0, 0); }}>

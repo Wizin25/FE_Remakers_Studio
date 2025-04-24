@@ -4,44 +4,27 @@ import "./style.css";
 export const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
-    {
-      image: "https://res.cloudinary.com/dzht29nkq/image/upload/v1742025585/z6407726649516_1530f9c1e7bc2490e252b65dbfc547d2_kxpgih.jpg",
-      onClick: () => window.location.href = '/clean',
-    },
-    {
-      image: "https://res.cloudinary.com/dzht29nkq/image/upload/v1742025585/z6407726667451_b092fc69c6877ab8618d2ab7eb3d19a9_gbksjf.jpg",
-    },
-    {
-      image: "https://res.cloudinary.com/dzht29nkq/image/upload/v1742025584/z6407726638415_5635f6f60dbecf101070fb63536a5425_btcdrq.jpg",
-    }
+    { image: "https://res.cloudinary.com/dzht29nkq/image/upload/v1742025585/z6407726649516_1530f9c1e7bc2490e252b65dbfc547d2_kxpgih.jpg" },
+    { image: "https://res.cloudinary.com/dzht29nkq/image/upload/v1742025585/z6407726667451_b092fc69c6877ab8618d2ab7eb3d19a9_gbksjf.jpg" },
+    { image: "https://res.cloudinary.com/dzht29nkq/image/upload/v1742025584/z6407726638415_5635f6f60dbecf101070fb63536a5425_btcdrq.jpg" }
   ];
 
   // Auto slide
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    }, 5000); // Chuyển slide mỗi 5 giây
+      setCurrentSlide(prev => (prev === slides.length - 1 ? 0 : prev + 1));
+    }, 5000);
 
     return () => clearInterval(timer);
   }, []);
 
-  // Handlers for manual navigation
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  };
+  const nextSlide = () => setCurrentSlide(prev => (prev === slides.length - 1 ? 0 : prev + 1));
+  const prevSlide = () => setCurrentSlide(prev => (prev === 0 ? slides.length - 1 : prev - 1));
+  const goToSlide = (index) => setCurrentSlide(index);
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
-
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-  };
   return (
-    
     <div className="home">
       <div className="content">
-        {/* Banner Slider Section */}
         <section className="banner-slider">
           <div className="slides-container" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             {slides.map((slide, index) => (
@@ -51,26 +34,16 @@ export const Home = () => {
             ))}
           </div>
 
-          {/* Navigation Buttons */}
-          <button className="slider-nav prev" onClick={prevSlide}>
-            <i className="arrow left"></i>
-          </button>
-          <button className="slider-nav next" onClick={nextSlide}>
-            <i className="arrow right"></i>
-          </button>
-
-          {/* Dots Navigation */}
+          <button className="slider-nav prev" onClick={prevSlide}><i className="arrow left"></i></button>
+          <button className="slider-nav next" onClick={nextSlide}><i className="arrow right"></i></button>
+          
           <div className="slider-dots">
             {slides.map((_, index) => (
-              <button
-                key={index}
-                className={`dot ${currentSlide === index ? 'active' : ''}`}
-                onClick={() => goToSlide(index)}
-              />
+              <button key={index} className={`dot ${currentSlide === index ? 'active' : ''}`} onClick={() => goToSlide(index)} />
             ))}
           </div>
         </section>
-
+ 
         {/* Mission Section */}
         <section className="mission-section">
           <div className="mission-frame">
@@ -131,16 +104,12 @@ export const Home = () => {
           <div className="map-container">
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d462.33298602469745!2d106.83776128517091!3d10.841976894766278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317521006ef2f155%3A0x3af040f9e0388d32!2sFamilyMart%20S601!5e0!3m2!1svi!2s!4v1744575774268!5m2!1svi!2s" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0 }} 
-              allowFullScreen 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+              width="100%" height="100%" style={{ border: 0 }} allowFullScreen 
+              loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </section>
 
+      
       </div>
     </div>
   );
