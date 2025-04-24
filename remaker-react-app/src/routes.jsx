@@ -12,7 +12,6 @@ import { TestApiButton } from './screens/TestApiButton';
 import { ProductDetail } from "./screens/Product/ProductDetail";
 import PaymentSuccess from "./screens/Cart/PaymentSuccess";
 import PaymentCancel from "./screens/Cart/PaymentCancle"; // Added PaymentCancel import
-import { OrderHistory }  from './screens/Cart/OrderHistory';
 //import { ChatBox } from './components/chatboxAI/ChatBox';
 
 export const AppRoutes = () => {
@@ -31,7 +30,7 @@ export const AppRoutes = () => {
       <Route path="/product/:id" element={<ProductDetail />} /> 
       <Route path="/payment-success" element={<PaymentSuccess />} />
       <Route path="/payment-cancel" element={<PaymentCancel />} /> {/* Added PaymentCancel route */}
-      <Route path="/order-history" element={<OrderHistory />} />
+     
       
     </Routes>
   );

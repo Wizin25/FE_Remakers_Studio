@@ -1,37 +1,118 @@
 .product-detail {
     text-align: center;
-    max-width: 800px;
-    margin: 200px auto; /* Centering the margin */
-    padding: 20px; /* Adding padding for better spacing */
-    background-color: #f9f9f9; /* Light background for contrast */
-    border-radius: 15px; /* Rounded corners */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 900px;
+    margin: 150px auto;
+    padding: 40px;
+    background: #f9f9f9; /* Light background */
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.13); /* Refined shadow */
     font-family: 'Montserrat', sans-serif;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #e0e0e0; /* Subtle border */
+}
+
+.product-detail:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.18);
+}
+
+/* Enhanced border animation */
+.product-detail::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b390, #6fba82);
+    z-index: -1;
+    border-radius: 27px; /* Slightly larger to cover the border */
+    background-size: 300% 300%;
+    animation: animatedgradient 5s ease alternate infinite;
+}
+
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .product-detail img {
-    width: 250px;
-    max-height: 250px;
+    width: 280px;
+    max-height: 280px;
     object-fit: cover;
-    border-radius: 15px; /* Matching border radius with the container */
-    transition: transform 0.3s; /* Smooth zoom effect */
+    border-radius: 13px;
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.13); /* Deeper shadow */
+    transition: transform 0.4s ease-in-out;
 }
 
 .product-detail img:hover {
-    transform: scale(1.05); /* Zoom effect on hover */
+    transform: scale(1.08) rotate(4deg); /* More pronounced rotation */
+}
+
+.product-name {
+    font-size: 32px;
+    font-weight: 600;
+    color: #2c3e50; /* Darker, more professional color */
+    margin-bottom: 18px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .product-description {
-    font-size: 18px; /* Increased font size for better readability */
-    margin: 15px 0; /* More spacing around the description */
-    color: #333; /* Darker text color for contrast */
+    font-size: 18px; /* Increased font size */
+    margin: 25px 0;
+    color: #333; /* Darker, more prominent color */
+    line-height: 1.6;
+    text-align: justify;
+    opacity: 1; /* Fully opaque */
+    font-weight: 400; /* Added font weight */
+    text-shadow: 0.4px 0.4px 1px rgba(0, 0, 0, 0.18); /* Added subtle text shadow */
 }
 
 .product-price {
-    font-size: 24px; /* Increased font size for emphasis */
-    font-weight: bold;
-    color: #e74c3c; /* Changed color for a more vibrant look */
-    margin: 10px 0; /* Added margin for spacing */
+    font-size: 36px;
+    font-weight: 700;
+    color: #e74c3c; /* A richer red */
+    margin: 22px 0;
+    text-shadow: 1.8px 1.8px 3px rgba(0, 0, 0, 0.18); /* Stronger shadow */
+    animation: price-pulse 1.5s infinite alternate; /* Add pulse animation */
 }
 
+@keyframes price-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.04);
+        opacity: 0.9;
+    }
+}
 
+.add-to-cart-button {
+    background-color: #2980b9; /* A more vibrant blue */
+    color: #fff;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.23);
+    outline: none; /* Remove the outline on focus */
+}
+
+.add-to-cart-button:hover {
+    background-color: #1e6091; /* Darker shade on hover */
+    transform: scale(1.05);
+    box-shadow: 0 6px 13px rgba(0, 0, 0, 0.28);
+}

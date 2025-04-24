@@ -73,17 +73,27 @@ export const Service = () => {
                     <div className={`nav-item ${location.pathname === '/clean' ? 'active' : ''}`} onClick={() => navigate('/clean')}>Vệ sinh</div>
                 </div>
                 <div className="instruction">
-                        <h3>🧵 Bạn có thể tự thiết kế đôi giày của mình tại Nike:</h3>
-                        <ol>
-                            <li>- Bước 1: Vào <a href="https://www.nike.com/vn/w?q=custom%20by%20you&vst=custom%20by%20you" target="_blank" rel="noopener noreferrer">Tại đây</a> hoặc bấm các mẫu phía dưới.</li>
-                            <li>- Bước 2: Chọn mẫu bạn muốn tùy chỉnh.</li>
-                            <li>- Bước 3: Nhấn nút "Tùy chỉnh" để vào giao diện thiết kế.</li>
-                            <li>- Bước 4: Khi giao diện thiết kế mở ra → sao chép link trên thanh địa chỉ.</li>
-                            <li>- Bước 5: Dán link đó vào ô bên dưới để tiếp tục đặt dịch vụ!</li>
-                        </ol>
-                    </div>
+                    <h3>🧵 Bạn có thể tự thiết kế đôi giày của mình tại Nike:</h3>
+                    <ol>
+                        <li>Bước 1: Vào <a href="https://www.nike.com/vn/w?q=custom%20by%20you&vst=custom%20by%20you" target="_blank" rel="noopener noreferrer">Tại đây</a> hoặc bấm các mẫu phía dưới.</li>
+                        <li>Bước 2: Chọn mẫu bạn muốn tùy chỉnh.</li>
+                        <li>Bước 3: Nhấn nút "Tùy chỉnh" để vào giao diện thiết kế.</li>
+                        <li>Bước 4: Khi giao diện thiết kế mở ra → sao chép link trên thanh địa chỉ.</li>
+                        <li>Bước 5: Dán link đó vào ô bên dưới để tiếp tục đặt dịch vụ!</li>
+                    </ol>
+                </div>
+                <div className="sketchfab-embed-wrapper">
+                    <iframe title="Nike Shoe" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="1000" height="500" src="https://sketchfab.com/models/beeac11879924b769acb8358f6417756/embed?autostart=1&transparent=1&dnt=1"> </iframe>
+                    <p style={{ fontSize: '13px', fontWeight: 'normal', margin: '5px', color: '#4A4A4A' }}>
+                        <a href="https://sketchfab.com/3d-models/nike-shoe-beeac11879924b769acb8358f6417756?utm_medium=embed&utm_campaign=share-popup&utm_content=beeac11879924b769acb8358f6417756" target="_blank" rel="nofollow" style={{ fontWeight: 'bold', color: '#1CAAD9' }}>
+                            Nike Shoe
+                        </a> by
+                        <a href="https://sketchfab.com/prem.sk2102?utm_medium=embed&utm_campaign=share-popup&utm_content=beeac11879924b769acb8358f6417756" target="_blank" rel="nofollow" style={{ fontWeight: 'bold', color: '#1CAAD9' }}>
+                            Remakers Studio </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=beeac11879924b769acb8358f6417756" target="_blank" rel="nofollow" style={{ fontWeight: 'bold', color: '#1CAAD9' }}>Sketchfab</a>
+                    </p>
+                </div>
                 <div className="service-content1">
-                    
+
                     <div className="grid-container" style={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(3, 1fr)',

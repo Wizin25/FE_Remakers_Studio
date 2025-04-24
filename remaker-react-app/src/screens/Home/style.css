@@ -18,50 +18,113 @@
 
 /* Mission Title */
 .mission-title {
-  position: relative;
-  width: 100%;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .mission-title h2 {
   display: inline-block;
-  padding: 15px 40px;
-  background: #fff;
+  padding: 12px 35px;
+  background: linear-gradient(to right, #4CAF50, #8BC34A);
   border-radius: 30px;
-  font-size: 32px;
-  font-weight: bold;
-  color: #222;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  border: 3px solid #56ab2f;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  border: none;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   position: relative;
-  font-family: 'Montserrat', sans-serif; /* Changed font family to Montserrat */
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+  z-index: 1;
+  /* transition: transform 0.3s ease, box-shadow 0.3s ease; */ /* Removed zoom */
+  animation: moveGradient 5s linear infinite; /* Added auto movement */
+  background-size: 200% auto; /* Ensure gradient covers larger area */
 }
+
+/* .mission-title h2:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+} */ /* Removed zoom */
+
+.mission-title h2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* .mission-title h2:hover::before {
+  opacity: 1;
+} */ /* Removed zoom */
 
 .mission-title h2::after {
   content: "";
   position: absolute;
-  bottom: -10px;
+  bottom: -6px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: #56ab2f;
-  border-radius: 2px;
+  width: 70px;
+  height: 5px;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
 /* Mission Content */
 .mission-content {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(135deg, #56ab2f 0%, #2c6b0e 100%);
+  padding: 60px;
+  border-radius: 40px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(45deg, #56ab2f, #2c6b0e);
   color: #fff;
   text-align: center;
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  border: 5px solid #4CAF50;
+  position: relative;
+  z-index: 1;
+}
+
+.mission-content:hover {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  transform: translateY(-8px);
+  border-color: #388E3C;
+}
+
+.mission-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 40px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mission-content:hover::before {
+  opacity: 1;
 }
 
 .mission-content h2 {
@@ -536,4 +599,44 @@
       max-height: 300px;
     }
   }
+}
+/* 3D Transition Effects */
+@keyframes slideIn {
+  0% {
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slide {
+  animation: slideIn 1s ease-out;
+}
+
+.mission-item {
+  transform: perspective(500px) rotateY(10deg);
+  transition: all 0.3s ease-out;
+}
+
+.mission-item:hover {
+  transform: perspective(500px) rotateY(0deg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.activity-step img {
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.activity-step:hover img {
+  transform: scale(1.1);
+}
+
+.map-container {
+  transition: transform 0.3s ease;
+}
+
+.map-container:hover {
+  transform: scale(1.05);
 }

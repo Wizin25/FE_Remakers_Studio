@@ -1,275 +1,290 @@
 .nav {
-    background-color: #ffffff;
-    height: 100px;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  .nav-container {
-    max-width: 1440px;
-    margin: 0 auto;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 40px;
-  }
-  .nav-home {
-    color: #000000;
-    font-family: "Montserrat-Bold", Helvetica;
-    font-size: 20px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
+  height: 100px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Hide overflowing content */
+  background: linear-gradient(to right, #ffffff, #f1f1f1, #ffffff); /* Initial gradient */
+  background-size: 200% 100%; /* Double the size for animation */
+  animation: wave 5s linear infinite; /* Apply wave animation */
+  transition: box-shadow 0.3s ease;
+}
 
-  .nav-service {
-    color: #000000;
-    font-family: "Montserrat-Bold", Helvetica;
-    font-size: 20px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: color 0.3s ease;
+/* Wave animation */
+@keyframes wave {
+  0% {
+    background-position: 200% 0; /* Start position (outside view) */
   }
+  100% {
+    background-position: 0 0; /* End position (move to the left) */
+  }
+}
 
-  .nav-product {
-    color: #000000;
-    font-family: "Montserrat-Bold", Helvetica;
-    font-size: 20px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
 
-  .nav-contact {
-    color: #000000;
-    font-family: "Montserrat-Bold", Helvetica;
-    font-size: 20px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-  /* Logo */
-  .nav-logo {
-    flex: 0 0 200px;
-  }
-  
-  .logo-2 {
-    height: 100px;
-    width: 200px;
-    object-fit: contain;
-  }
-  
-  /* Menu Items */
+.nav-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%; /* Use percentage for responsiveness */
+}
+.nav-home {
+  color: #000000;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-service {
+  color: #000000;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-product {
+  color: #000000;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-contact {
+  color: #000000;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+/* Logo */
+.nav-logo {
+  flex: 0 0 200px;
+}
+
+.logo-2 {
+  height: 100px;
+  width: 200px;
+  object-fit: contain;
+}
+
+/* Menu Items */
+.navbar {
+  display: flex;
+  gap: 120px;
+  align-items: center;
+  flex-grow: 1; /* Allow navbar to take available space */
+}
+
+.navbar > div {
+  color: #000000;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbar > div:hover {
+  color: #666666;
+}
+
+/* User Actions */
+.nav-actions {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  position: relative;
+  margin-left: auto; /* Move user actions to the right */
+}
+
+.user-account,
+.shopping-cart {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+.account-icon,
+.cart-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.nav-actions span {
+  font-family: "Montserrat", Helvetica;
+  font-size: 14px;
+  color: #000000;
+}
+
+.cart-count {
+  background-color: #fd0404;
+  color: #ffffff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+/* Dropdown for Logout */
+.dropdown {
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  background-color: #ffffff !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+  padding: 10px 0 !important;
+  display: none !important; /* Keep this for default state */
+  z-index: 1000 !important; /* Ensure dropdown appears above other elements */
+}
+
+.dropdown button {
+  width: 100% !important;
+  padding: 10px !important;
+  text-align: left !important;
+  border: none !important;
+  background-color: transparent !important;
+  font-family: "Montserrat", Helvetica !important;
+  font-size: 14px !important;
+  color: #000000 !important;
+  cursor: pointer !important;
+}
+
+.dropdown button:hover {
+  background-color: #f0f0f0 !important;
+}
+
+.user-account:hover .dropdown,
+.user-account:focus-within .dropdown { /* Allow dropdown to show on focus */
+  display: block !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
   .navbar {
-    display: flex;
-    gap: 120px;
-    align-items: center;
-    flex-grow: 1; /* Allow navbar to take available space */
+    gap: 30px !important; /* Reduced gap */
+    font-size: 12px !important; /* Smaller font size */
   }
-  
-  .navbar > div {
-    color: #000000;
-    font-family: "Montserrat-Bold", Helvetica;
-    font-size: 20px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: color 0.3s ease;
+
+  .nav-container {
+    padding: 0 15px !important; /* Reduced padding */
   }
-  
-  .navbar > div:hover {
-    color: #666666;
+
+  .nav-home, .nav-service, .nav-product, .nav-contact {
+    font-size: 12px !important; /* Adjusted font size for medium screens */
   }
-  
-  /* User Actions */
-  .nav-actions {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    position: relative;
-    margin-left: auto; /* Move user actions to the right */
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    gap: 20px !important; /* Reduced gap */
+    font-size: 12px !important; /* Smaller font size */
   }
-  
-  .user-account,
-  .shopping-cart {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    position: relative;
+
+  .nav-logo {
+    flex: 0 0 140px !important; /* Adjusted logo size */
   }
-  
-  .account-icon,
-  .cart-icon {
-    width: 24px;
-    height: 24px;
+
+  .logo-2 {
+    height: 40px !important; /* Adjusted logo height */
+    width: 140px !important; /* Adjusted logo width */
   }
-  
+
   .nav-actions span {
-    font-family: "Montserrat", Helvetica;
-    font-size: 14px;
-    color: #000000;
+    display: none !important; /* Hide text, show only icons */
   }
-  
-  .cart-count {
-    background-color: #fd0404;
-    color: #ffffff;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    margin-left: 4px;
-  }
-  
-  /* Dropdown for Logout */
-  .dropdown {
-    position: absolute !important;
-    top: 100% !important;
-    left: 0 !important;
-    background-color: #ffffff !important;
-    border: 1px solid #ddd !important;
-    border-radius: 4px !important;
-    padding: 10px 0 !important;
-    display: none !important; /* Keep this for default state */
-    z-index: 1000 !important; /* Ensure dropdown appears above other elements */
-  }
-  
-  .dropdown button {
-    width: 100% !important;
-    padding: 10px !important;
-    text-align: left !important;
-    border: none !important;
-    background-color: transparent !important;
-    font-family: "Montserrat", Helvetica !important;
-    font-size: 14px !important;
-    color: #000000 !important;
-    cursor: pointer !important;
-  }
-  
-  .dropdown button:hover {
-    background-color: #f0f0f0 !important;
-  }
-  
-  .user-account:hover .dropdown,
-  .user-account:focus-within .dropdown { /* Allow dropdown to show on focus */
-    display: block !important;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 1024px) {
-    .navbar {
-      gap: 30px !important; /* Reduced gap */
-      font-size: 12px !important; /* Smaller font size */
-    }
-  
-    .nav-container {
-      padding: 0 15px !important; /* Reduced padding */
-    }
 
-    .nav-home, .nav-service, .nav-product, .nav-contact {
-      font-size: 12px !important; /* Adjusted font size for medium screens */
-    }
+  .nav-actions {
+    gap: 15px !important; /* Reduced gap */
   }
-  
-  @media (max-width: 768px) {
-    .navbar {
-      gap: 20px !important; /* Reduced gap */
-      font-size: 12px !important; /* Smaller font size */
-    }
-  
-    .nav-logo {
-      flex: 0 0 140px !important; /* Adjusted logo size */
-    }
-  
-    .logo-2 {
-      height: 40px !important; /* Adjusted logo height */
-      width: 140px !important; /* Adjusted logo width */
-    }
-  
-    .nav-actions span {
-      display: none !important; /* Hide text, show only icons */
-    }
-  
-    .nav-actions {
-      gap: 15px !important; /* Reduced gap */
-    }
 
-    .nav-home, .nav-service, .nav-product, .nav-contact {
-      font-size: 10px !important; /* Adjusted font size for smaller screens */
-    }
+  .nav-home, .nav-service, .nav-product, .nav-contact {
+    font-size: 10px !important; /* Adjusted font size for smaller screens */
   }
-  
-  @media (max-width: 480px) {
-    .nav {
-      height: 70px !important; /* Further reduced height */
-    }
-  
-    .nav-logo {
-      flex: 0 0 100px !important; /* Adjusted logo size */
-    }
-  
-    .logo-2 {
-      height: 30px !important; /* Adjusted logo height */
-      width: 100px !important; /* Adjusted logo width */
-    }
+}
 
-    .nav-home, .nav-service, .nav-product, .nav-contact {
-      font-size: 9px !important; /* Further adjusted font size for small screens */
-    }
+@media (max-width: 480px) {
+  .nav {
+    height: 70px !important; /* Further reduced height */
   }
-  
-  @media (max-width: 375px) {
-    .navbar {
-      flex-direction: column !important; /* Stack menu items vertically */
-      gap: 15px !important; /* Adjusted gap between items */
-      font-size: 10px !important; /* Smaller font size */
-    }
-  
-    .nav-actions {
-      flex-direction: column !important; /* Stack user actions vertically */
-      gap: 8px !important; /* Adjusted gap between actions */
-    }
-  
-    .nav-logo {
-      flex: 0 0 80px !important; /* Adjusted logo size */
-    }
-  
-    .logo-2 {
-      height: 24px !important; /* Adjusted logo height */
-      width: 80px !important; /* Adjusted logo width */
-    }
 
-    .nav-home, .nav-service, .nav-product, .nav-contact {
-      font-size: 8px !important; /* Further adjusted font size for very small screens */
-    }
+  .nav-logo {
+    flex: 0 0 100px !important; /* Adjusted logo size */
   }
-  
-  @media (max-width: 320px) {
-    .nav {
-      height: 60px !important; /* Further reduced height for very small screens */
-    }
-  
-    .nav-logo {
-      flex: 0 0 70px !important; /* Adjusted logo size for very small screens */
-    }
-  
-    .logo-2 {
-      height: 20px !important; /* Adjusted logo height */
-      width: 70px !important; /* Adjusted logo width */
-    }
-  
-    .navbar {
-      gap: 5px !important; /* Further reduced gap between menu items */
-    }
-  
-    .nav-actions {
-      gap: 3px !important; /* Further reduced gap between user actions */
-    }
+
+  .logo-2 {
+    height: 30px !important; /* Adjusted logo height */
+    width: 100px !important; /* Adjusted logo width */
   }
+
+  .nav-home, .nav-service, .nav-product, .nav-contact {
+    font-size: 9px !important; /* Further adjusted font size for small screens */
+  }
+}
+
+@media (max-width: 375px) {
+  .navbar {
+    flex-direction: column !important; /* Stack menu items vertically */
+    gap: 15px !important; /* Adjusted gap between items */
+    font-size: 10px !important; /* Smaller font size */
+  }
+
+  .nav-actions {
+    flex-direction: column !important; /* Stack user actions vertically */
+    gap: 8px !important; /* Adjusted gap between actions */
+  }
+
+  .nav-logo {
+    flex: 0 0 80px !important; /* Adjusted logo size */
+  }
+
+  .logo-2 {
+    height: 24px !important; /* Adjusted logo height */
+    width: 80px !important; /* Adjusted logo width */
+  }
+
+  .nav-home, .nav-service, .nav-product, .nav-contact {
+    font-size: 8px !important; /* Further adjusted font size for very small screens */
+  }
+}
+
+@media (max-width: 320px) {
+  .nav {
+    height: 60px !important; /* Further reduced height for very small screens */
+  }
+
+  .nav-logo {
+    flex: 0 0 70px !important; /* Adjusted logo size for very small screens */
+  }
+
+  .logo-2 {
+    height: 20px !important; /* Adjusted logo height */
+    width: 70px !important; /* Adjusted logo width */
+  }
+
+  .navbar {
+    gap: 5px !important; /* Further reduced gap between menu items */
+  }
+
+  .nav-actions {
+    gap: 3px !important; /* Further reduced gap between user actions */
+  }
+}
