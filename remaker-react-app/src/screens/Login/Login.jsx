@@ -19,128 +19,113 @@ export const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-      
-        // Dùng state trực tiếp
         const username = e.target.username.value;
-        // const password = e.target.password.value ❌ bỏ dòng này đi
-      
-        if (!username || !password) {
-          setError("Vui lòng nhập tên đăng nhập và mật khẩu.");
-          return;
-        }
-      
-        const credentials = { username, password }; // Dùng password từ state
-        const response = await loginUser(credentials);
-      
-        if (response.error) {
-          // xử lý lỗi
-        } else {
-          localStorage.setItem('token', response.data.token);
-          localStorage.setItem('username', credentials.username);
-          window.dispatchEvent(new Event('storage'));
-      
-          if (credentials.username === 'admin') {
-            navigate('/admin');
-          } else {
-            navigate('/SharedLayout');
-          }
-        }
-      };
-      
 
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
+        if (!username || !password) {
+            setError("Vui lòng nhập tên đăng nhập và mật khẩu.");
+            setShowError(true);
+            return;
+        }
+
+        const credentials = { username, password };
+        const response = await loginUser(credentials);
+
+        if (response.error) {
+            setError("Tên đăng nhập hoặc mật khẩu sai.");
+            setShowError(true);
+        } else {
+            localStorage.setItem('token', response.data.token);
+            localStorage.setItem('username', credentials.username);
+            window.dispatchEvent(new Event('storage'));
+
+            if (credentials.username === 'admin') {
+                navigate('/admin');
+            } else {
+                navigate('/SharedLayout');
+            }
+        }
     };
 
+    useEffect(() => {
+        const root = document.documentElement;
+        const eye = document.getElementById('eyeball');
+        const beam = document.getElementById('beam');
+        const passwordInput = document.getElementById('password');
+
+        const handleMouseMove = (e) => {
+            if (!beam) return;
+            let rect = beam.getBoundingClientRect();
+            let mouseX = rect.right + (rect.width / 2);
+            let mouseY = rect.top + (rect.height / 2);
+            let rad = Math.atan2(mouseX - e.pageX, mouseY - e.pageY);
+            let degrees = (rad * (20 / Math.PI) * -1) - 350;
+            root.style.setProperty('--beamDegrees', `${degrees}deg`);
+        };
+
+        const handleEyeClick = (e) => {
+            e.preventDefault();
+            document.body.classList.toggle('show-password');
+            setShowPassword(prev => !prev);
+            passwordInput.focus();
+        };
+
+        root.addEventListener('mousemove', handleMouseMove);
+        eye.addEventListener('click', handleEyeClick);
+
+        return () => {
+            root.removeEventListener('mousemove', handleMouseMove);
+            eye.removeEventListener('click', handleEyeClick);
+        };
+    }, []);
+
     return (
-        <div className="login-container" >
-            <div className="login-box">
-                <div className="login-content">
-                    <h1 className="login-title">Chào Mừng Bạn Quay Lại</h1>
-
-                    {showError && (
-                        <p className="error-message" style={{ animation: 'fadeIn 0.5s' }}>
-                            <span role="img" aria-label="warning">⚠️</span> {error}
-                        </p>
-                    )}
-
-                    <form className="login-form" onSubmit={handleSubmit}>
-                        <div className="form-group">
-                            <label htmlFor="username">Tên Đăng Nhập</label>
-                            <input
-                                type="text"
-                                id="username"
-                                className="form-input"
-                                placeholder="Nhập tên đăng nhập của bạn"
-                            />
-                        </div>
-
-                        <div className="form-group" style={{ marginBottom: '20px' }}>
-                            <label htmlFor="password" style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>Mật khẩu</label>
-                            <div style={{
-                                position: 'relative',
-                                display: 'flex',
-                                alignItems: 'center'
-                            }}>
-                                <input
-                                    type={showPassword ? 'text' : 'password'}
-                                    id="password"
-                                    className="form-input"
-                                    placeholder="Nhập mật khẩu của bạn"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    style={{
-                                        width: '100%',
-                                        padding: '10px 40px 10px 12px',
-                                        border: '1px solid #ccc',
-                                        borderRadius: '8px',
-                                        fontSize: '16px',
-                                        boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.1)',
-                                        transition: 'border 0.2s ease-in-out',
-                                        outline: 'none'
-                                    }}
-                                    onFocus={(e) => e.target.style.border = '1px solid #007bff'}
-                                    onBlur={(e) => e.target.style.border = '1px solid #ccc'}
-                                />
-                                <button
-                                    type="button"
-                                    onClick={togglePasswordVisibility}
-                                    style={{
-                                        position: 'absolute',
-                                        right: '10px',
-                                        background: 'transparent',
-                                        border: 'none',
-                                        cursor: 'pointer',
-                                        fontSize: '18px',
-                                        color: '#555'
-                                    }}
-                                    title={showPassword ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'}
-                                >
-                                    {showPassword ? '👁️' : '🙈'}
-                                </button>
-                            </div>
-                        </div>
-
-
-                        <button type="submit" className="login-button">
-                            Đăng nhập
-                        </button>
-
-                        <div className="login-footer">
-                            <span>Chưa có tài khoản? </span>
-                            <a href="/Register" className="signup-link">Đăng ký ngay</a>
-                        </div>
-                    </form>
-                </div>
-
-                <div className="login-image">
-                    <img
-                        src="https://res.cloudinary.com/dzht29nkq/image/upload/v1741624468/login-shoe_yftbc6.png"
-                        alt="Login"
-                        className="side-image"
+        <div className="login-container">
+            <div className="login-image">
+                <img
+                    src="https://res.cloudinary.com/dzht29nkq/image/upload/v1741624468/login-shoe_yftbc6.png"
+                    alt="Login"
+                    className="side-image"
+                />
+            </div>
+            <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label htmlFor="username">Tên Đăng Nhập</label>
+                    <input
+                        id="username"
+                        type="text"
+                        className="form-input"
+                        placeholder="Nhập tên đăng nhập của bạn"
                     />
                 </div>
-            </div>
+
+                <div className="form-group">
+                    <label htmlFor="password">Mật khẩu</label>
+                    <div className="input-wrapper">
+                        <input
+                            id="password"
+                            type={showPassword ? 'text' : 'password'}
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            className="form-input"
+                            placeholder="Nhập mật khẩu của bạn"
+                        />
+                        <div id="beam"></div>
+                        <button id="eyeball" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <button id="submit" type="submit" className="login-button">Đăng nhập</button>
+                <div className="login-footer">
+                    <span>Chưa có tài khoản? </span>
+                    <a href="/Register" className="signup-link">Đăng ký ngay</a>
+                </div>
+            </form>
+
         </div>
     );
 };

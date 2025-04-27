@@ -82,15 +82,15 @@ export const Service = () => {
                         <li>Bước 5: Dán link đó vào ô bên dưới để tiếp tục đặt dịch vụ!</li>
                     </ol>
                 </div>
-                <div className="sketchfab-embed-wrapper">
+                    <div className="sketchfab-embed-wrapper">
                     <iframe title="Nike Shoe" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="1000" height="500" src="https://sketchfab.com/models/beeac11879924b769acb8358f6417756/embed?autostart=1&transparent=1&dnt=1"> </iframe>
                     <p style={{ fontSize: '13px', fontWeight: 'normal', margin: '5px', color: '#4A4A4A' }}>
                         <a href="https://sketchfab.com/3d-models/nike-shoe-beeac11879924b769acb8358f6417756?utm_medium=embed&utm_campaign=share-popup&utm_content=beeac11879924b769acb8358f6417756" target="_blank" rel="nofollow" style={{ fontWeight: 'bold', color: '#1CAAD9' }}>
                             Nike Shoe
                         </a> by
                         <a href="https://sketchfab.com/prem.sk2102?utm_medium=embed&utm_campaign=share-popup&utm_content=beeac11879924b769acb8358f6417756" target="_blank" rel="nofollow" style={{ fontWeight: 'bold', color: '#1CAAD9' }}>
-                            Remakers Studio </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=beeac11879924b769acb8358f6417756" target="_blank" rel="nofollow" style={{ fontWeight: 'bold', color: '#1CAAD9' }}>Sketchfab</a>
-                    </p>
+                            Remakers Studio </a> 
+                            </p>
                 </div>
                 <div className="service-content1">
 

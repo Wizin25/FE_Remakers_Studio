@@ -235,13 +235,13 @@
 .sketchfab-embed-wrapper {
     margin: 30px auto;
     text-align: center;
-    background: linear-gradient(45deg, #2193b0, #6dd5ed, #2980b9);
+    background: linear-gradient(45deg, #21b06b, #6dd5ed, #2980b9);
     background-size: 100% 100%;
     animation: gradientAnimation 5s infinite alternate;
     padding: 40px;
     border-radius: 30px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-    border: 3px solid #2980b9;
+    border: 3px solid #f3f6f4;
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
   
