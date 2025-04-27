@@ -83,7 +83,7 @@ export const Home = () => {
             </div>
             <div className="activity-step">
               <img src="https://res.cloudinary.com/dzht29nkq/image/upload/v1741624467/activity2_pvnu9m.png" alt="Step 2" />
-              <p>Gửi đồ của bạn cho chúng tôi... và thư giãn.</p>
+              <p>Gửi đồ của bạn cho chúng tôi và thư giãn.</p>
             </div>
             <div className="activity-step">
               <img src="https://res.cloudinary.com/dzht29nkq/image/upload/v1741624467/activity3_z09tde.png" alt="Step 3" />
