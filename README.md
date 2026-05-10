@@ -47,5 +47,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## 📬 Contact
 For any questions or feedback, reach out via:
-- 📧 Email: support@remakersstudio.com
-- 🐙 GitHub Issues: [https://github.com/yourusername/remakers-studio/issues](https://github.com/yourusername/remakers-studio/issues)
+- 📧 Email: phantanphu2505@gmail.com
